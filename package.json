@@ -1,0 +1,29 @@
+{
+  "name": "red-team",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verizon-warehouse-red-team/red-team.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/verizon-warehouse-red-team/red-team/issues"
+  },
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-validator": "^6.14.0",
+    "handlebars": "^4.7.7",
+    "sequelize": "^6.12.0-beta.3",
+    "sqlite3": "^5.0.2"
+  },
+  "homepage": "https://github.com/verizon-warehouse-red-team/red-team#readme"
+}

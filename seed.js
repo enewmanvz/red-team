@@ -78,19 +78,22 @@ const boxes = [
 
 const employees = [
     {
-        name: 'employee 1',
+        firstName: 'Employee',
+        lastName: 'One',
         WarehouseId: 1,
         ManagerId: 1,
         UserId: 3
         
     },
     {
-        name: 'employee 2',
+        firstName: 'Employee',
+        lastName: 'Two',
         WarehouseId: 2,
         ManagerId: 2
     },
     {
-        name: 'employee 3',
+        firstName: 'Employee',
+        lastName: 'Three',
         WarehouseId: 3,
         ManagerId: 3
         
@@ -103,16 +106,19 @@ const employees = [
 
 const managers = [
     {
-        name: 'manager 1',
+        firstName: 'Manager',
+        lastName: 'One',
         UserId: 2
         
     },
     {
-        name: 'manager 2',
+        firstName: 'Manager',
+        lastName: 'Two',
         UserId: 1
     },
     {
-        name: 'manager 3'
+        firstName: 'Manager',
+        lastName: 'Three',
     }
 
 

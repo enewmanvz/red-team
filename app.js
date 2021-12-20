@@ -11,6 +11,8 @@ app.engine('handlebars', expressHandlebars({
 app.set('view engine', 'handlebars');
 
 
+
+
 // support the parsing of incoming requests with urlencoded payloads (e.g. form POST)
 app.use(express.urlencoded({ extended: true }));
 // support the parsing of incoming requests with json payloads
@@ -25,11 +27,13 @@ app.use(express.static('public'));
 const {login} = require('./routes/login.route')
 const {employee} = require('./routes/employee.route')
 const {manager} = require('./routes/manager.route')
+const {warehouse} = require('./routes/warehouse.route')
 
 // Import my routes into the path '/'
 app.use('/login', login);
 app.use('/employee/', employee);
 app.use('/manager/', manager);
+app.use('/warehouse/', warehouse);
 
 
 

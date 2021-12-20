@@ -3,7 +3,8 @@ const { sequelizedb,DataTypes, Model } = require('../db');
 class Manager extends Model {}
 
 Manager.init({
-    name : DataTypes.STRING
+    firstName : DataTypes.STRING,
+    lastName: DataTypes.STRING
 }, {
     sequelize: sequelizedb,
     timestamps: true,

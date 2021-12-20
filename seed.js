@@ -121,7 +121,7 @@ const managers = [
 
 const users = [
     {
-        userid: 'crystal',
+        email: 'crystal@test.com',
         password: "somepassword",
         role: 'manager'
        
@@ -130,13 +130,13 @@ const users = [
         
     },
     {
-        userid: 'mmalik',
+        email: 'mmalik@test.com',
         password: "somepassword",
         role: 'employee'
        
     },
     {
-        userid: 'iyanna',
+        email: 'iyanna@test.com',
         password: "somepassword",
         role: 'manager'
         

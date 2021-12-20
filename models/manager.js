@@ -6,7 +6,7 @@ Manager.init({
     name : DataTypes.STRING
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Manager;
+module.exports = {Manager};

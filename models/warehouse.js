@@ -9,7 +9,7 @@ Warehouse.init({
     capacity : DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Warehouse;
+module.exports = {Warehouse};

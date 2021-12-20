@@ -1,29 +1,50 @@
+*{
+    font-family: 'Source Serif Pro', 'Verdana';
+}
+
 #contact {
-    color: white;
+    color: #D4D8D7;
     text-align: center;
     font-size: x-large;
-    margin-top: 15%;
-    padding-top: 5rem;
+    margin-top: 10%;
+    padding-top: 2rem;
 }
 
 .fa-pallet {
-    color: red;
+    color: #d72638;
 }
 
 .navigate {
-    color: whitesmoke;
+    color: #D4D8D7;
 }
 
 .navigate:hover {
     cursor: pointer;
-    color: red;
+    color: #d72638;
 }
 
 .fa-copyright {
-    color: whitesmoke;
+    color: #D4D8D7;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .card-group {
-    margin: 10%;
+    margin: 2%;
+}
+
+#inventory {
+    color: #D4D8D7;
+    text-align: center;
+    font-size: x-large;
+    margin-top: 5%;
+}
+
+#login {
+    /* background-color: #D4D8D7; */
+    background-color: #E0A800;
+    color: #2A2828;
+}
+
+#loginform {
+    background-image: url(https://images.unsplash.com/photo-1592228533283-d78f7c1cf453?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80);
 }

@@ -1,7 +1,26 @@
-  
-  <div class="container">
+{{!-- NavBar --}}
+<nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand me-5" href="#">
+            <i class="fas fa-pallet"></i>
+            Expedite
+          </a>
+            <ul class="nav nav-pills justify-content-end">
+                <!-- <li class="nav-item mx-3"><a class="navigate" href="#">About</a></li>
+                <li class="nav-item mx-3"><a class="navigate" href="#">Inventory</a></li> -->
+                <li class="nav-item mx-3"><button class="navigate btn btn-info">
+                <a href="/">Home</a>
+                </button></li>
+            </ul>
+        </div>
+      </nav>
+<main id="loginform">
+    <br>
+    <br>
+{{!-- Login Form --}}
+  <div id="login" class="container">
     <h3 class="mt-5 text-center mb-5">Inventory Application Tracker</h3>  
-    <div class="container" style="margin-left: 20%; margin-right:20%">
+    <div class="container" style="margin-left: 20%; margin-right: 10%">
         <form action="/login/validate" method="post">
             <div class="mb-3 row">
                 <label for="email" class="col-sm-2 col-form-label fw-bolder">Email</label>
@@ -15,11 +34,19 @@
                 <input type="password" name="password" class="form-control" id="password" style="width: 25%;" autocomplete="off">
                 </div>
             </div>
-            <div class="mb-3 row align-items-center justify-content-around">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-                </div>
+            <div class="d-grid row gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-info mb-3">Confirm identity</button>
             </div>
         </form>
     </div>
+        
   </div>
+<br>
+<br>
+</main>
+<footer class="mt-5">
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item mx-3"><a class="navigate" href="/">Get Help</a></li>
+        </ul>
+        <i class="fas fa-copyright mx-2 d-inline">   Red Team</i>
+</footer>

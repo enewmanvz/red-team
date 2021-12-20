@@ -17,6 +17,7 @@
     "url": "https://github.com/verizon-warehouse-red-team/red-team/issues"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@handlebars/allow-prototype-access": "^1.0.5",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",

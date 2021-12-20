@@ -1,9 +1,9 @@
-const Employee = require('./models/employee');
-const Manager = require('./models/manager');
-const Palette = require('./models/palette');
-const Box = require('./models/box');
-const Warehouse = require('./models/warehouse');
-const User = require('./models/user');
+const {Employee} = require('./models/employee');
+const {Manager} = require('./models/manager');
+const {Palette} = require('./models/palette');
+const {Box} = require('./models/box');
+const {Warehouse} = require('./models/warehouse');
+const {User} = require('./models/user');
 
 /*
 

@@ -12,7 +12,7 @@ login.get('/', async (req, res) => {
 
 //Post Route triggered by form submit action
 login.post('/validate', async (req,res) =>{
-    // need to valdate if this user exist
+    // need to validate if this user exist
     const email = req.body.email;
     const password = req.body.password
     

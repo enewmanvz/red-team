@@ -7,7 +7,7 @@ Box.init({
     label: DataTypes.STRING
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Box;
+module.exports = {Box};

@@ -7,7 +7,7 @@ Palette.init({
     boxcount: DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Palette;
+module.exports = {Palette};

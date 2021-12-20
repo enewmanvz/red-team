@@ -6,7 +6,7 @@ Employee.init({
     name : DataTypes.STRING
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Employee;
+module.exports = {Employee};

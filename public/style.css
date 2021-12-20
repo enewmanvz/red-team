@@ -1,0 +1,29 @@
+#contact {
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    margin-top: 15%;
+    padding-top: 5rem;
+}
+
+.fa-pallet {
+    color: red;
+}
+
+.navigate {
+    color: whitesmoke;
+}
+
+.navigate:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.fa-copyright {
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-group {
+    margin: 10%;
+}

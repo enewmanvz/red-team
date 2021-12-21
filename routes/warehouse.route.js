@@ -63,9 +63,23 @@ warehouse.get('/getOneWarehouse/:id', async (req, res) => {
 })
 
 warehouse.post('/updateAction', async (req, res) => {
-     let updatedWarehouse = await Warehouse.update(req.body, {
-          where : {id:req.params.id}
+     const whattoUpdate = {
+         name: req.body.name,
+          location:  req.body.location,
+          image:  req.body.image,
+          capacity:  req.body.capacity,
+          
+
+     }
+     const userID = req.session.userID
+     const selectedValue = req.body.selectedValue
+     console.log('selected value' + selectedValue)
+     let updatedWarehouse = await Warehouse.update(whattoUpdate, {
+          where : {managerID: userID, id: selectedValue}
       })
+      if (updatedWarehouse) {
+          res.redirect('/manager')
+      }
 })
 
 warehouse.get('/delete', async (req, res) => {

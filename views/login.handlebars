@@ -1,0 +1,46 @@
+{{!-- NavBar --}}
+<nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand me-5 expedite" href="#">
+            <i class="fas fa-pallet"></i>
+            Expedite
+          </a>
+            <ul class="nav nav-pills justify-content-end">
+                <!-- <li class="nav-item mx-3"><a class="navigate" href="#">About</a></li>
+                <li class="nav-item mx-3"><a class="navigate" href="#">Inventory</a></li> -->
+                <li class="nav-item mx-3"><button class="navigate btn btn-info">
+                <a href="/">Home</a>
+                </button></li>
+            </ul>
+      </div>
+</nav>
+<main id="loginform">
+    <br>
+    <br>
+{{!-- Login Form --}}
+  <div id="login" class="container center-block">
+    <h3 class="mt-5 text-center mb-3">Inventory Application Tracker</h3>  
+    <div class="text-center" style="margin: 0 auto;">
+        <form class="row mx-auto" action="/login/validate" method="post">
+            <div class="col-6 mb-2 fields">
+                <label for="email" class="col-sm-5 col-form-label fw-bolder">Email</label>
+                <div class="text-center mx-auto">
+                <input type="text"  name="email" class="form-control mx-auto" id="email" style="width: 50%;" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-6 mb-2 fields">
+                <label for="password" class="col-sm-5 col-form-label fw-bolder">Password</label>
+                <div class="mx-auto">
+                    <input type="password" name="password" class="form-control mx-auto" id="password" style="width: 50%;" autocomplete="off">
+                </div>
+            </div>
+            <div class="d-grid gap-2 g-4 col-8 mx-auto">
+                <button type="submit" class="btn btn-info mb-3">Confirm identity</button>
+                {{usernameAlert}}
+            </div>
+        </form>
+    </div>
+  </div>
+<br>
+<br>
+</main>

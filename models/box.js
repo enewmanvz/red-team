@@ -4,10 +4,11 @@ class Box extends Model {}
 
 Box.init({
     size : DataTypes.INTEGER,
-    label: DataTypes.STRING
+    label: DataTypes.STRING,
+    paletteID: DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Box;
+module.exports = {Box};

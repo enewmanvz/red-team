@@ -3,10 +3,14 @@ const { sequelizedb,DataTypes, Model } = require('../db');
 class Employee extends Model {}
 
 Employee.init({
-    name : DataTypes.STRING
+    firstName : DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    managerID: DataTypes.INTEGER,
+    warehouseID: DataTypes.INTEGER,
+    userID: DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
-    timestamps: false,
+    timestamps: true,
 });
 
-module.exports = Employee;
+module.exports = {Employee};

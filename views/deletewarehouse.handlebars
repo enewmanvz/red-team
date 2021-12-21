@@ -1,0 +1,28 @@
+{{> managermenu}}
+<div class="container">
+    <h3 class="mt-5 text-center mb-5">Delete Warehouse</h3>  
+</div>
+<div class="container">
+
+      
+     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
+            <option selected>Select Warehouse...</option>
+             {{#each warehousesForUserID}}
+                <option value={{this.id}}>{{this.name}} </option>
+            {{/each}}
+    </select>   
+</div>
+
+   <div class="container" style="margin: 0 auto;">
+        <form class="row" action="/warehouse/deleteAction" method="post" id="warehouseDeleteForm">
+            <div class="mb-3 row align-items-center justify-content-around">
+                    <button type="submit" class="btn btn-info mb-3 w-50">Delete Warehouse</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/deletewarehouse.js"></script>
+
+
+    
+    

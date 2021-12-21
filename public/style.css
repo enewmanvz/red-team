@@ -15,6 +15,14 @@
     color: #d72638;
 }
 
+.fa-lightbulb {
+    color: #E0A800;
+}
+
+#lightItUp {
+    background-color: #D72638;
+}
+
 .navigate {
     color: #D4D8D7;
 }
@@ -118,4 +126,8 @@
     font-family: 'Kolker Brush', cursive;
     font-size: 20vh;
     color: #D72638;
+}
+
+.lightMode {
+    background-image: url(https://images.unsplash.com/photo-1590209680469-534b21078b1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80);
 }

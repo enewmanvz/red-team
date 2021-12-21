@@ -1,4 +1,54 @@
 {{> managermenu}}
 <div class="container">
     <h3 class="mt-5 text-center mb-5">Update Warehouse</h3>  
+</div>
+<div class="container">
+
+      
+     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
+            <option selected>Open this to select the warehouse</option>
+             {{#each warehousesForUserID}}
+                <option value={{this.id}}>{{this.name}} </option>
+            {{/each}}
+    </select>   
+</div>
+<div class="container"  style="visibility: hidden;">
+   <div class="container" style="margin-left: 20%; margin-right:20%">
+        <form action="/warehouse/updateAction" method="post" id="warehouseUpdateForm">
+            <div class="mb-3 row">
+                <label for="name" class="col-sm-2 col-form-label fw-bolder">Name</label>
+                <div class="col-sm-10">
+                <input type="text"  name="name" class="form-control" id="name" style="width: 25%;" autocomplete="off">
+                </div>
+            </div>
+            <div class="mb-5 row">
+                <label for="location" class="col-sm-2 col-form-label fw-bolder">Location</label>
+                <div class="col-sm-10">
+                <input type="text" name="location" class="form-control" id="location" style="width: 25%;" autocomplete="off">
+                </div>
+            </div>
+            <div class="mb-5 row">
+                <label for="image" class="col-sm-2 col-form-label fw-bolder">Image URL</label>
+                <div class="col-sm-10">
+                <input type="text" name="image" class="form-control" id="image" style="width: 25%;" autocomplete="off">
+                </div>
+            </div>
+            <div class="mb-5 row">
+                <label for="capacity" class="col-sm-2 col-form-label fw-bolder">Capacity</label>
+                <div class="col-sm-10">
+                <input type="number" name="capacity" class="form-control" id="capacity" style="width: 25%;" autocomplete="off">
+                </div>
+            </div>
+            
+            <div class="mb-3 row align-items-center justify-content-around">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary mb-3">Update Warehouse</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/updatewarehouse.js"></script>
+
+
     

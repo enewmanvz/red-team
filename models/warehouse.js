@@ -6,7 +6,8 @@ Warehouse.init({
     name: DataTypes.STRING,
     location: DataTypes.STRING,
     image: DataTypes.STRING,
-    capacity : DataTypes.INTEGER
+    capacity : DataTypes.INTEGER,
+    managerID: DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
     timestamps: true,

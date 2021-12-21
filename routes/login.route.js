@@ -2,6 +2,7 @@
 const express = require('express');
 const login = express.Router();
 const {User} = require('../models/user');
+const path = require('path');
 //const {Crew} = require('./models/crew');
 
 
@@ -16,11 +17,14 @@ login.post('/validate', async (req,res) =>{
     const email = req.body.email;
     const password = req.body.password
     const found = await User.findOne({where:{email: email, password: password}})
+    const id = found.id
+    
     if (found) {
+        req.session.userID = id
         if (found.role === 'manager') {
-            res.redirect('/manager')
+            res.redirect(`/manager`)
         }else {
-            res.redirect('/employee')
+            res.redirect(`/employee/`)
         }
     }
     else {
@@ -34,22 +38,6 @@ login.post('/validate', async (req,res) =>{
  
 
    
-    
-    
-    
-    /*
-    const newSauce = await Sauce.create(req.body)
-    //Create a sauceAlert to pass to the template
-    let sauceAlert = `${newSauce.name} added to your database`
-    //Find newSauce in db by id
-    const foundSauce = await Sauce.findByPk(newSauce.id)
-    if(foundSauce){
-        res.render('newSauceForm',{sauceAlert})
-    } else {
-        sauceAlert = 'Failed to add Sauce'
-        res.render('newSauceForm',{sauceAlert})
-    }
-    */
 })
 
 

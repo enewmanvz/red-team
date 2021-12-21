@@ -4,7 +4,8 @@ class Box extends Model {}
 
 Box.init({
     size : DataTypes.INTEGER,
-    label: DataTypes.STRING
+    label: DataTypes.STRING,
+    paletteID: DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
     timestamps: true,

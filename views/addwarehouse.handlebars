@@ -1,37 +1,31 @@
 {{> managermenu}}
-<div class="container">
-    <h3 class="mt-5 text-center mb-5">Add Warehouse</h3>  
-    <div class="container" style="margin-left: 20%; margin-right:20%">
-        <form action="/login/validate" method="post">
-            <div class="mb-3 row">
-                <label for="name" class="col-sm-2 col-form-label fw-bolder">Name</label>
-                <div class="col-sm-10">
-                <input type="text"  name="name" class="form-control" id="name" style="width: 25%;" autocomplete="off">
-                </div>
+<main id="add">
+    <h3 class="mt-5 text-center mb-5 bg-dark">Add Warehouse</h3>  
+    <div class="container" style="margin: 0 auto;">
+        <form class="row" action="/login/validate" method="post">
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="name" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels"> Name</span></label>
+                {{!-- <div class="col-sm-10"> --}}
+                <input type="text"  name="name" class="col-6 text-center form-control" id="name" style="width: 25%;" autocomplete="off">
+                {{!-- </div> --}}
             </div>
-            <div class="mb-5 row">
-                <label for="location" class="col-sm-2 col-form-label fw-bolder">Location</label>
-                <div class="col-sm-10">
-                <input type="text" name="location" class="form-control" id="location" style="width: 25%;" autocomplete="off">
-                </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="location" class="col-sm-6 col-form-label fw-bolder"><span class="labels">Location</span></label>
+                <input type="text" name="location" class="col-6 text-center form-control" id="location" style="width: 25%;" autocomplete="off">
             </div>
-            <div class="mb-5 row">
-                <label for="image" class="col-sm-2 col-form-label fw-bolder">Image URL</label>
-                <div class="col-sm-10">
-                <input type="text" name="image" class="form-control" id="image" style="width: 25%;" autocomplete="off">
-                </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="image" class="col-sm-6 col-form-label fw-bolder"><span class="labels">Image URL</span></label>
+                <input type="text" name="image" class="col-6 form-control" id="image" style="width: 25%;" autocomplete="off">
             </div>
-            <div class="mb-5 row">
-                <label for="capacity" class="col-sm-2 col-form-label fw-bolder">Capacity</label>
-                <div class="col-sm-10">
-                <input type="number" name="capacity" class="form-control" id="capacity" style="width: 25%;" autocomplete="off">
-                </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="capacity" class="col-sm-6 col-form-label fw-bolder"><span class="labels">Capacity</span></label>
+                <input type="number" name="capacity" class="col-6 form-control" id="capacity" style="width: 25%;" autocomplete="off">
             </div>
-            <div class="mb-3 row align-items-center justify-content-around">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary mb-3">Add Warehouse</button>
+            {{!-- <div class="mb-3 row align-items-center justify-content-around"> --}}
+                <div class="d-grid gap-2 g-4 col-8 mx-auto">
+                    <button type="submit" class="btn btn-info mb-3 pb-3">Add Warehouse</button>
                 </div>
-            </div>
+            {{!-- </div> --}}
         </form>
     </div>
-  </div>
+</main>

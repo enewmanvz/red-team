@@ -15,7 +15,6 @@ login.post('/validate', async (req,res) =>{
     // need to validate if this user exist
     const email = req.body.email;
     const password = req.body.password
-    
     const found = await User.findOne({where:{email: email, password: password}})
     if (found) {
         if (found.role === 'manager') {
@@ -24,6 +23,16 @@ login.post('/validate', async (req,res) =>{
             res.redirect('/employee')
         }
     }
+    else {
+        const usernameAlert = `Username or password in incorrect, please try again`
+        res.render('login', {usernameAlert}) 
+        
+        
+        
+    
+    }
+ 
+
    
     
     

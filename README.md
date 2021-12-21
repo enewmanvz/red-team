@@ -1,6 +1,7 @@
+<img src="resources/welcome.gif" width="400" height="200" />
+
 # Expedite Warehouse and Inventory Management App
-![Screenshot of wireline]<img src=".png" width="500" height="500" />
-![Screenshot of wireline]<img src=".png"/>
+<img src="resources/app_page1.png" width="600" height="500" />
 
 # Project Description
 
@@ -40,8 +41,8 @@ Employees are able to:
 </ul>
 
 # Project Planning
-![ERD diagram]<img src="express-movie-ERD.png" width="600" height="500" />
-![kanban board]<img src="https://raw.githubusercontent.com/cpaynejohnson/express-movie-database/main/public/kanban.png">
+<img src="resources/vzwarehouse.drawio.png" width="600" height="500" />
+<img src="resources/kanban2.png"/>
 
 # Testing Results
 <img src="test_file.png" width="500" height="500" />
@@ -62,5 +63,5 @@ To make suggestions, please create a new issue on this repo.
 <li>Muneer Malik - Backend Lead</li>
 <li>Crystal Johnson - Scrum Master</li>
 
-Thank you to Micheal Dunn-O'Connor for all of his assistance! 
-<img src="./week_5/thankyou.gif" width="600" height="500" />
+Thank you to Micheal Dunn-O'Connor for all of his assistance! <br><br><br>
+<img src="./resources/thankyou.gif" width="300" height="150" />

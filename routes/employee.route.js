@@ -10,5 +10,10 @@ employee.get('/', async (req, res) => {
     res.render('employee')
 })
 
+employee.get('/add', async (req, res) => {
+    
+    res.render('addemployee')
+})
+
 
 module.exports = {employee};

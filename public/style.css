@@ -87,3 +87,7 @@
     animation: labelBackground 25s ease-in infinite;
     padding: 3px;
 }
+
+#dashboard {
+    background-image: url(https://media.giphy.com/media/3MhpfvvjQo3GeuSDQA/giphy.gif);
+}

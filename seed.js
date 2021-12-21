@@ -7,19 +7,19 @@ const warehouses = [
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 1000,
-      ManagerId: 1 },
+      managerID: 1 },
       
       { name: 'Sears2', 
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 2000,
-      ManagerId: 2  },
+      managerID: 2  },
       
       { name: 'Sears3', 
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 3000,
-      ManagerId: 3  }
+      managerID: 3  }
 
 
 
@@ -33,21 +33,22 @@ const palettes = [
     {
         capacity: 500, 
         boxcount: 100,
-        EmployeeId: 1,
-        WarehouseId: 1
+        warehouseID: 1,
+        employeeID: 1
 
     },
     {
         capacity: 600, 
         boxcount: 200,
-        EmployeeId: 2,
-        WarehouseId: 2
+       
+        warehouseID: 2,
+        employeeID: 1
     },
     {
         capacity: 700, 
         boxcount: 300,
-        EmployeeId: 3,
-        WarehouseId: 3
+        employeeID: 3,
+        warehouseID: 3
     }
 
 
@@ -58,17 +59,20 @@ const boxes = [
     {
         size: 300, 
         label: 100,
-        PaletteId: 1
+        paletteID: 1,
+        warehouseID: 1
     },
     {
         size: 400, 
         label: 100,
-        PaletteId: 2
+        paletteID: 2,
+        warehouseID: 2
     },
     {
         size: 600, 
         label: 100,
-        PaletteId: 3
+        paletteID: 3,
+        warehouseID: 3
     }
 
 
@@ -80,22 +84,24 @@ const employees = [
     {
         firstName: 'Employee',
         lastName: 'One',
-        WarehouseId: 1,
-        ManagerId: 1,
-        UserId: 3
+        warehouseID: 1,
+        managerID: 1,
+        userID: 3
         
     },
     {
         firstName: 'Employee',
         lastName: 'Two',
-        WarehouseId: 2,
-        ManagerId: 2
+        warehouseID: 2,
+        managerID: 2,
+        userID: 3
     },
     {
         firstName: 'Employee',
         lastName: 'Three',
-        WarehouseId: 3,
-        ManagerId: 3
+        warehouseID: 3,
+        managerID: 3,
+        userID: 1
         
     }
 
@@ -108,17 +114,21 @@ const managers = [
     {
         firstName: 'Manager',
         lastName: 'One',
-        UserId: 2
+        userID: 2
+        
         
     },
     {
         firstName: 'Manager',
         lastName: 'Two',
-        UserId: 1
+        userID: 1
+        
     },
     {
         firstName: 'Manager',
         lastName: 'Three',
+        userID: 3
+        
     }
 
 

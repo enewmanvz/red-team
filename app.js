@@ -2,6 +2,7 @@ const express = require('express')
 const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const session = require('express-session');
 const app = express();
 
 app.engine('handlebars', expressHandlebars({
@@ -10,7 +11,16 @@ app.engine('handlebars', expressHandlebars({
 
 app.set('view engine', 'handlebars');
 
-
+// express session
+app.set('trust proxy', 1)
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 365 * 1000
+  }
+}))
 
 
 // support the parsing of incoming requests with urlencoded payloads (e.g. form POST)

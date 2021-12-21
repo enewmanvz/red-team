@@ -8,7 +8,7 @@
     text-align: center;
     font-size: x-large;
     margin-top: 10%;
-    padding-top: 2rem;
+    animation: coolers 10s ease-in-out infinite;
 }
 
 .fa-pallet {
@@ -67,7 +67,7 @@
 
 #helpform {
     background-color: #E0A800;
-    background-image: url(https://images.unsplash.com/photo-1557230969-60807a515577?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80);
+    /* background-image: url(https://images.unsplash.com/photo-1557230969-60807a515577?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80); */
 }
 
 #add {
@@ -90,4 +90,32 @@
 
 #dashboard {
     background-image: url(https://media.giphy.com/media/3MhpfvvjQo3GeuSDQA/giphy.gif);
+}
+
+#footer {
+    background-image: url(https://images.unsplash.com/photo-1484734278752-212d8c88a568?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80);
+}
+
+@keyframes helper {
+    0% {color: #2A2828;}
+    25% {color: #D72638;}
+    50% {color: #E0A800;}
+    75% {color: #17A2B8;}
+    100% {color: #2A2828;}
+}
+#help {
+    background-color: #D4D8D7;
+    padding: 5px;
+    border-radius: 25px;
+    animation: helper 20s ease-in-out infinite alternate-reverse;
+}
+
+#home {
+    background-image: url(https://images.unsplash.com/reserve/oGLumRxPRmemKujIVuEG_LongExposure_i84.jpeg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80);
+}
+
+.expedite {
+    font-family: 'Kolker Brush', cursive;
+    font-size: 20vh;
+    color: #D72638;
 }

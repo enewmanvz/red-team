@@ -7,6 +7,7 @@ const manager = express.Router();
 
 
 manager.get('/', async (req, res) => {
+   
     res.render('manager')
 })
 

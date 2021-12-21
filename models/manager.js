@@ -4,7 +4,8 @@ class Manager extends Model {}
 
 Manager.init({
     firstName : DataTypes.STRING,
-    lastName: DataTypes.STRING
+    lastName: DataTypes.STRING,
+    userID: DataTypes.INTEGER
 }, {
     sequelize: sequelizedb,
     timestamps: true,

@@ -37,13 +37,19 @@ warehouse.post('/addAction', async (req, res) => {
 
 
 
-warehouse.get('/update', async (req, res) => {
+warehouse.get('/select/:action', async (req, res) => {
      // need to get the list to render
     //find all Warehouses for this user
     const userID = req.session.userID
+    const action = req.params.action
     const warehousesForUserID = await Warehouse.findAll({where: {managerID: userID}})
     if (warehousesForUserID) {
-     res.render('updatewarehouse', {warehousesForUserID})
+        if (action === "update") {
+            res.render('updatewarehouse', {warehousesForUserID})
+        }else if (action === "delete") {
+            res.render('deletewarehouse', {warehousesForUserID})
+        } 
+       
     }
    
   
@@ -82,12 +88,19 @@ warehouse.post('/updateAction', async (req, res) => {
       }
 })
 
-warehouse.get('/delete', async (req, res) => {
-     res.render('deletewarehouse')
-})
 
 warehouse.post('/deleteAction', async (req, res) => {
     
+    const userID = req.session.userID
+    const selectedValue = req.body.selectedValue
+    const deleted = await Warehouse.destroy({
+        where : {managerID: userID, id: selectedValue}
+    })
+    
+    console.log("I am here in deleted")
+     if (deleted) {
+         res.redirect('/manager')
+     }
 })
 
 

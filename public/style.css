@@ -69,3 +69,21 @@
     background-color: #E0A800;
     background-image: url(https://images.unsplash.com/photo-1557230969-60807a515577?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80);
 }
+
+#add {
+    color: #D72638;
+    background-image: url(https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+}
+
+@keyframes labelBackground {
+    0% {background-color: #2A2828; color: #D72638;}
+    25% {background-color: #D72638; color: #D4D8D7;}
+    50% {background-color: #17A2B8; color: #2A2828;}
+    75% {background-color: #2A2828; color: #E0A800;}
+    100% {background-color: #E0A800; color: #2A2828;}
+}
+
+.labels {
+    animation: labelBackground 25s ease-in infinite;
+    padding: 3px;
+}

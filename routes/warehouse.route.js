@@ -38,11 +38,34 @@ warehouse.post('/addAction', async (req, res) => {
 
 
 warehouse.get('/update', async (req, res) => {
-     res.render('updatewarehouse')
+     // need to get the list to render
+    //find all Warehouses for this user
+    const userID = req.session.userID
+    const warehousesForUserID = await Warehouse.findAll({where: {managerID: userID}})
+    if (warehousesForUserID) {
+     res.render('updatewarehouse', {warehousesForUserID})
+    }
+   
+  
+     
+})
+
+warehouse.get('/getOneWarehouse/:id', async (req, res) => {
+    const userID = req.session.userID
+    const selectID = req.params.id
+    const singleWarehouseForUserID = await Warehouse.findOne({where: {id: selectID, managerID: userID}})
+    if (singleWarehouseForUserID) {
+     res.json({singleWarehouseForUserID})
+    }
+   
+  
+     
 })
 
 warehouse.post('/updateAction', async (req, res) => {
-    
+     let updatedWarehouse = await Warehouse.update(req.body, {
+          where : {id:req.params.id}
+      })
 })
 
 warehouse.get('/delete', async (req, res) => {

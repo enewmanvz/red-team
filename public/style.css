@@ -92,7 +92,6 @@
 }
 
 .labels {
-    animation: labelBackground 25s ease-in infinite;
     padding: 3px;
 }
 

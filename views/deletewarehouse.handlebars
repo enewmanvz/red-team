@@ -6,21 +6,17 @@
 
       
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
-            <option selected>Open this to select the warehouse</option>
+            <option selected>Select Warehouse...</option>
              {{#each warehousesForUserID}}
                 <option value={{this.id}}>{{this.name}} </option>
             {{/each}}
     </select>   
 </div>
 
-   <div class="container" style="margin-left: 20%; margin-right:20%">
-        <form action="/warehouse/deleteAction" method="post" id="warehouseDeleteForm">
-            
-            
+   <div class="container" style="margin: 0 auto;">
+        <form class="row" action="/warehouse/deleteAction" method="post" id="warehouseDeleteForm">
             <div class="mb-3 row align-items-center justify-content-around">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary mb-3">Delete Warehouse</button>
-                </div>
+                    <button type="submit" class="btn btn-info mb-3 w-50">Delete Warehouse</button>
             </div>
         </form>
     </div>

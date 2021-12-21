@@ -46,4 +46,23 @@ employee.post('/addAction', async (req, res) => {
 })
 
 
+employee.get('/select/:action', async (req, res) => {
+    // need to get the list to render
+   //find all Warehouses for this user
+   const userID = req.session.userID
+   const action = req.params.action
+   const warehousesForUserID = await Warehouse.findAll({where: {managerID: userID}})
+   if (warehousesForUserID) {
+       if (action === "update") {
+           res.render('updatewarehouse', {warehousesForUserID})
+       }else if (action === "delete") {
+           res.render('deletewarehouse', {warehousesForUserID})
+       } 
+      
+   }
+  
+ 
+    
+})
+
 module.exports = {employee};

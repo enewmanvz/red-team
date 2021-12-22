@@ -4,12 +4,17 @@ const manager = express.Router();
 const {Warehouse} = require('../models/warehouse');
 const {Employee} = require('../models/employee');
 const { Op } = require("sequelize");
+const fs = require('fs');
 
+//Handlebars
+const Handlebars = require('handlebars');
+const expressHandlebars = require('express-handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access') 
 
-manager.get('/', async (req, res) => {
-   
-    res.render('manager')
-})
+manager.get('/', async (_req, res) => {
+    const populate = await Employee.findAll();
+    res.render('manager', {populate});
+});
 
 manager.get('/select/:action', async (req, res) => {
     // need to get the list to render
@@ -30,17 +35,8 @@ manager.get('/select/:action', async (req, res) => {
     const warehouseForUserID = await Warehouse.findAll({where: {managerID: id}})
     if (employeesForUserID && warehouseForUserID) {
        res.render('moveemployee', {employeesForUserID, warehouseForUserID})
-         
-       
     }
-   }
-  
-   
-   
-   
-  
- 
-    
+   }   
 })
 
 
@@ -66,10 +62,6 @@ manager.post('/linkAction', async (req, res) => {
     if (linkEmployeeWarehouse) {
         res.redirect('/manager')
     }
-   
-    
- 
-    
 })
 
 manager.post('/moveAction', async (req, res) => {
@@ -93,16 +85,7 @@ manager.post('/moveAction', async (req, res) => {
 
     if (linkEmployeeWarehouse) {
         res.redirect('/manager')
-    }
-   
-    
- 
-    
+    }  
 })
-
-
-
-
-
 
 module.exports = {manager};

@@ -1,15 +1,11 @@
 {{> managermenu}}
-<div class="container">
+<main class="container login">
     <h3 class="mt-5 text-center mb-5">Link New Employee to Worksite Location</h3>  
-</div>
-<div class="container">
-
-    <br>
     <br>
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_employee_value">
             <option selected>Select Employee...</option>
              {{#each employeesForUserID}}
-                <option value={{this.id}}>{{this.firstName}}&nbsp;{{this.lastName}} </option>
+                <option value={{this.id}}>{{this.firstName}}&nbsp;{{this.lastName}}</option>
             {{/each}}
     </select>   
     <br><br>
@@ -20,15 +16,12 @@
             {{/each}}
     </select>   
 </div>
-
-   <div class="container" style="margin: 0 auto;">
         <form class="row" action="/manager/linkAction" method="post" id="employeeLinkForm">
             <div class="mb-3 row align-items-center justify-content-around">
-                    <button type="submit" class="btn btn-info mb-3 w-50">Link Employee</button>
+                <button type="submit" class="btn btn-info mb-3 w-50">Link Employee</button>
             </div>
         </form>
-    </div>
-</div>
+</main>
 <script src="/linkemployee.js"></script>
 
 

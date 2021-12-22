@@ -5,25 +5,22 @@ let firstTimeWarehouse = true
 
 selectEmployeeOption.addEventListener('change', async () => {
      // need to attach the id with this form
-     const selectEmployeeValue = document.getElementById(selectEmployeeOption.id).value
+     const selectEmployeeValue = document.getElementById(selectEmployeeOption.id).value;
      const linkEmployeeForm = document.getElementById("employeeLinkForm");
      // check to see if this element already exists
         
         if (firstTimeEmployee) {
-            let newDiv = document.createElement('input')
+            let newDiv = document.createElement('input');
             newDiv.type = "hidden";
             newDiv.id = "selectEmployeeValue";
-            newDiv.name = "selectedEmployeeValue"
+            newDiv.name = "selectedEmployeeValue";
             newDiv.value = selectEmployeeValue;
-            linkEmployeeForm.appendChild(newDiv)
-            firstTimeEmployee = false
+            linkEmployeeForm.appendChild(newDiv);
+            firstTimeEmployee = false;
         } else {
-            let hiddenElement = document.getElementById("selectEmployeeValue")
+            let hiddenElement = document.getElementById("selectEmployeeValue");
             hiddenElement.value = selectEmployeeValue;
         }
-
-    
-   
 });
 
 selectWarehouseOption.addEventListener('change', async () => {
@@ -44,7 +41,4 @@ selectWarehouseOption.addEventListener('change', async () => {
            let hiddenElement = document.getElementById("selectWarehouseValue")
            hiddenElement.value = selectWarehouseValue;
        }
-
-   
-  
 });

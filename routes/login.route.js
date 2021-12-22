@@ -18,8 +18,9 @@ login.post('/validate', async (req,res) =>{
     const password = req.body.password
     const found = await User.findOne({where:{email: email, password: password}})
     if (found) {
-        const id = found.id
-        req.session.userID = id
+        const loggedInUserID = found.id
+        console.log("logged in user  " + loggedInUserID)
+        req.session.userID = loggedInUserID
         if (found.role === 'manager') {
             res.redirect(`/manager`)
         }else {

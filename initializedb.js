@@ -26,26 +26,49 @@ Task.belongsTo(Project, { foreignKey: 'tasks_pk' });
 
 
 
+//Manager.hasMany(Warehouse, { foreignKey: 'managerID' })
+//Warehouse.belongsTo(Manager, { foreignKey: 'managerID' })
+
+//Manager.hasMany(Employee, { foreignKey: 'managerID' })
+//Employee.belongsTo(Manager, { foreignKey: 'managerID' })
+
+
+
+
+/*
+Palette.hasMany(Box, { foreignKey: 'paletteID' })
+Box.belongsTo(Palette, { foreignKey: 'paletteID' })
+Box.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
+*/
+
+//Palette.belongsTo(Employee, { foreignKey: 'employeeID' })
+//Palette.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
+
+//Employee.belongsTo(User, { foreignKey: 'userID' })
+//Manager.belongsTo(User, { foreignKey: 'userID' })
+
+User.hasMany(Employee, { foreignKey: 'userID' })
+User.hasMany(Manager, { foreignKey: 'userID' })
+
+// manager can create warehouse
 Manager.hasMany(Warehouse, { foreignKey: 'managerID' })
 Warehouse.belongsTo(Manager, { foreignKey: 'managerID' })
 
+// manager can create employees
 Manager.hasMany(Employee, { foreignKey: 'managerID' })
 Employee.belongsTo(Manager, { foreignKey: 'managerID' })
 
-
+// employees can have many warehouse
 Warehouse.hasMany(Employee, { foreignKey: 'warehouseID' })
 Employee.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
+
+Palette.belongsTo(Employee, { foreignKey: 'employeeID' })
+Palette.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
 
 
 Palette.hasMany(Box, { foreignKey: 'paletteID' })
 Box.belongsTo(Palette, { foreignKey: 'paletteID' })
 Box.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
-
-Palette.belongsTo(Employee, { foreignKey: 'employeeID' })
-Palette.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
-
-Employee.belongsTo(User, { foreignKey: 'userID' })
-Manager.belongsTo(User, { foreignKey: 'userID' })
 
 /*
 Warehouse.hasMany(Employee)

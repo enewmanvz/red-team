@@ -1,5 +1,7 @@
+
 *{
     font-family: 'Source Serif Pro', 'Verdana';
+   
 }
 
 #contact {
@@ -41,6 +43,7 @@
     margin: 2%;
 }
 
+
 @keyframes coolers {
     0% {background-color: #2A2828; color: #D4D8D7;}
     25% {background-color: #E0A800; color: #D72638;}
@@ -48,6 +51,7 @@
     75% {background-color: #40798C; color: #2A2828;}
     100% {background-color: #D4D8D7; color: #2A2828;}
 }
+
 
 #inventory {
     color: #D4D8D7;
@@ -132,3 +136,4 @@
 .lightMode {
     background-image: url(https://images.unsplash.com/photo-1590209680469-534b21078b1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80);
 }
+

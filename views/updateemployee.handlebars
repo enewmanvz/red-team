@@ -1,52 +1,46 @@
 {{> managermenu}}
 <div class="container">
-    <h3 class="mt-5 text-center mb-5">Employee</h3>  
+    <h3 class="mt-5 text-center mb-5">Update Employee</h3>  
 </div>
 <div class="container">
 
       
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
-            <option selected>Select Warehouse...</option>
-             {{#each warehousesForUserID}}
+            <option selected>Select Employee...</option>
+             {{#each employeesForUserID}}
                 <option value={{this.id}}>{{this.name}} </option>
             {{/each}}
     </select>   
 </div>
 <div class="container"  style="visibility: hidden;">
    <div class="container" style="margin-left: 20%; margin-right:20%">
-        <form class="row" action="/warehouse/updateAction" method="post" id="warehouseUpdateForm">
-            <div class="mb-3 row">
-                <label for="name" class="col-sm-2 col-form-label fw-bolder"><span class="labels">Name</span></label>
-                <div class="col-sm-10">
-                <input type="text"  name="name" class="form-control" id="name" style="width: 25%;" autocomplete="off">
-                </div>
+       <form class="row" action="/employee/updateAction" method="post" id="employeeUpdateForm">
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="firstName" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">First Name</span></label>
+                <input type="text"  name="firstName" class="col-6 text-center form-control" id="firstName" style="width: 25%;" autocomplete="off">
             </div>
-            <div class="mb-5 row">
-                <label for="location" class="col-sm-2 col-form-label fw-bolder"><span class="labels">Location</span></label>
-                <div class="col-sm-10">
-                <input type="text" name="location" class="form-control" id="location" style="width: 25%;" autocomplete="off">
-                </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="lastName" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">Last Name</span></label>
+                <input type="text"  name="lastName" class="col-6 text-center form-control" id="lastName" style="width: 25%;" autocomplete="off">
             </div>
-            <div class="mb-5 row">
-                <label for="image" class="col-sm-2 col-form-label fw-bolder"><span class="labels">Image URL</span></label>
-                <div class="col-sm-10">
-                <input type="text" name="image" class="form-control" id="image" style="width: 25%;" autocomplete="off">
-                </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="email" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">Email</span></label>
+                <input type="text"  name="email" class="col-6 text-center form-control" id="email" style="width: 25%;" autocomplete="off">
             </div>
-            <div class="mb-5 row">
-                <label for="capacity" class="col-sm-2 col-form-label fw-bolder"><span class="labels">Capacity</span></label>
-                <div class="col-sm-10">
-                <input type="number" name="capacity" class="form-control" id="capacity" style="width: 25%;" autocomplete="off">
-                </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="password" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">Password</span></label>
+                <input type="password"  name="password" class="col-6 text-center form-control" id="password" style="width: 25%;" autocomplete="off">
+            </div>
+            <div class="d-grid gap-2 g-4 col-8 mx-auto">
+                    <button type="submit" class="btn btn-info mb-3 pb-3">Update Employee</button>
             </div>
             
-            <div class="d-grid gap-2 g-4 col-8 mx-auto">
-                    <button type="submit" class="btn btn-info mb-3 w-25">Update Warehouse</button>
-            </div>
+           
+                
         </form>
     </div>
 </div>
-<script src="/updatewarehouse.js"></script>
+<script src="/updateemployee.js"></script>
 
 
     

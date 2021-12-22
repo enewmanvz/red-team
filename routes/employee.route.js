@@ -3,11 +3,19 @@ const express = require('express');
 const employee = express.Router();
 const {Employee} = require('../models/employee');
 const {User} = require('../models/user');
+const {Warehouse} = require('../models/warehouse');
 
 
 
 employee.get('/', async (req, res) => {
-    res.render('employee')
+    // can get warehouse info
+    const userID = req.session.userID
+    const getWarehouseInfo = await Employee.findOne({where: {userID : userID}})
+    const warehouseID = getWarehouseInfo.warehouseID
+
+    const singleWarehouse = await Warehouse.findOne({where: {id: warehouseID}})
+    
+    res.render('employee', {singleWarehouse})
 })
 
 employee.get('/add', async (req, res) => {

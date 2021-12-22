@@ -47,13 +47,9 @@ app.use('/login', login);
 app.use('/employee/', employee);
 app.use('/manager/', manager);
 app.use('/warehouse/', warehouse);
-<<<<<<< HEAD
 app.use('/', main);
-=======
-app.use('/', main)
 app.use('/palette/', palette);
 app.use('/box/', box);
->>>>>>> 358223ac0ea3bfdbd396f430a17ac9485e7cd29d
 
 
 

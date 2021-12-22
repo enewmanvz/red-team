@@ -4,6 +4,7 @@ const {Palette} = require('./models/palette');
 const {Box} = require('./models/box');
 const {Warehouse} = require('./models/warehouse');
 const {User} = require('./models/user');
+const {WarehousePalette} = require('./models/warehousepalette');
 
 /*
 
@@ -70,6 +71,24 @@ Palette.hasMany(Box, { foreignKey: 'paletteID' })
 Box.belongsTo(Palette, { foreignKey: 'paletteID' })
 Box.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
 
+//Palette.belongsToMany(Warehouse, { through: 'WarehousePalette', foreignKey: 'paletteID' });
+//Warehouse.belongsToMany(Palette, { through: 'WarehousePalette' });
+
+WarehousePalette.associate = (models) => {
+    WarehousePalette.belongsTo(models.Warehouse);
+    WarehousePalette.belongsTo(models.Palette);
+}
+
+Warehouse.associate = (models) => {
+    Warehouse.belongsToMany(models.Palette, { through: models.WarehousePalette});
+  }
+
+Palette.associate = (models) => {
+    Palette.belongsToMany(models.Warehouse, { through: models.WarehousePalette});
+  }
+
+
+
 /*
 Warehouse.hasMany(Employee)
 Employee.belongsTo(Warehouse)
@@ -90,4 +109,4 @@ Employee.belongsTo(User)
 Manager.belongsTo(User)
 */
 
-module.exports = {Warehouse, Employee, Palette, Box, Manager, User}
+module.exports = {Warehouse, Employee, Palette, Box, Manager, User, WarehousePalette}

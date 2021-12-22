@@ -4,11 +4,12 @@
 </div>
 <div class="container">
 
-      
+     <h5>Designated Warehouse Site Name: {{singleWarehouse.name}} &nbsp;{{singleWarehouse.location}}</h5> 
+     <h5 style="color: darkred;">Current Capacity {{singleWarehouse.runningCapacity}}</h5> 
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
             <option selected>Select Palette...</option>
-             {{#each employeesForUserID}}
-                <option value={{this.id}}>{{this.name}} </option>
+             {{#each palettesArray}}
+                <option value={{this.id}}>{{this.label}} </option>
             {{/each}}
     </select>   
 </div>

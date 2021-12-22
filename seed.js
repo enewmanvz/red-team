@@ -1,4 +1,4 @@
-const {Warehouse, Employee, Palette, Box, Manager, User} = require('./initializedb');
+const {Warehouse, Employee, Palette, Box, Manager, User, WarehousePalette} = require('./initializedb');
 const {sequelizedb } = require('./db.js'); 
 
 
@@ -37,10 +37,10 @@ const palettes = [
         capacity: 500, 
         boxcount: 100,
         warehouseID: 1,
-        employeeID: 1,
+        employeeID: 2,
         runningCapacity: 500,
         runningBoxCount: 100,
-        label: 'Palette 500'
+        label: 'Palette Capacity 500, Box Count 100'
 
 
     },
@@ -48,19 +48,37 @@ const palettes = [
         capacity: 600, 
         boxcount: 200,
         warehouseID: 1,
-        employeeID: 1,
+        employeeID: 2,
         runningCapacity: 600,
         runningBoxCount: 200,
-        label: 'Palette 600'
+        label: 'Palette Capacity 600, Box Count 200'
     },
     {
         capacity: 700, 
         boxcount: 300,
-        employeeID: 1,
+        employeeID: 2,
         warehouseID: 1,
         runningCapacity: 700,
         runningBoxCount: 300,
-        label: 'Palette 700'
+        label: 'Palette Capacity, 700 Box Count 300'
+    },
+    {
+        capacity: 200, 
+        boxcount: 30,
+        employeeID: 2,
+        warehouseID: 1,
+        runningCapacity: 200,
+        runningBoxCount: 30,
+        label: 'Palette Capacity, 200 Box Count 30'
+    },
+    {
+        capacity: 100, 
+        boxcount: 10,
+        employeeID: 2,
+        warehouseID: 1,
+        runningCapacity: 100,
+        runningBoxCount: 10,
+        label: 'Palette Capacity 100, Box Count 10'
     }
 
 
@@ -174,8 +192,25 @@ const users = [
         
     }
 
+    
+
 
     
+]
+
+const warehousepalette = [
+    {
+        
+        paletteID: 1,
+        warehouseID:1
+        
+       
+        
+
+        
+    }
+    
+   
 ]
 
 
@@ -193,7 +228,7 @@ const seed = async () => {
      
       await Palette.bulkCreate(palettes, {validate: true})
       await Box.bulkCreate(boxes, {validate: true})
-      
+      await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
      
      
     } catch (error) {

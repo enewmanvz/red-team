@@ -7,6 +7,7 @@ Box.init({
     label: DataTypes.STRING,
     paletteID: DataTypes.INTEGER,
     warehouseID: DataTypes.INTEGER,
+    quantity: DataTypes.INTEGER
     
 }, {
     sequelize: sequelizedb,

@@ -39,13 +39,21 @@ const {employee} = require('./routes/employee.route');
 const {manager} = require('./routes/manager.route');
 const {warehouse} = require('./routes/warehouse.route');
 const {main} = require('./routes/main.route');
+const {palette} = require('./routes/palette.route');
+const {box} = require('./routes/box.route');
 
 // Import my routes into the path '/'
 app.use('/login', login);
 app.use('/employee/', employee);
 app.use('/manager/', manager);
 app.use('/warehouse/', warehouse);
+<<<<<<< HEAD
 app.use('/', main);
+=======
+app.use('/', main)
+app.use('/palette/', palette);
+app.use('/box/', box);
+>>>>>>> 358223ac0ea3bfdbd396f430a17ac9485e7cd29d
 
 
 

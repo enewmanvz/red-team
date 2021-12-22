@@ -1,34 +1,27 @@
 {{> managermenu}}
-<div class="container">
-    <h3 class="mt-5 text-center mb-5">Move Existing Employee to Different Worksite Location</h3>  
-</div>
-<div class="container">
-
-    <br>
+<main class="container login">
+    <h3 class="mt-5 pt-3 text-center mb-5">Move Existing Employee to Different Worksite Location</h3>
     <br>
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_employee_value">
             <option selected>Select Employee...</option>
              {{#each employeesForUserID}}
-                <option value={{this.id}}>{{this.name}}</option>
+                <option value={{this.id}}>{{this.firstName}}</option>
             {{/each}}
     </select>   
     <br><br>
     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_warehouse_value">
             <option selected>Select Warehouse...</option>
              {{#each warehouseForUserID}}
-                <option value={{this.id}}>{{this.name}} </option>
+                <option value={{this.id}}>{{this.name}}</option>
             {{/each}}
     </select>   
 </div>
-
-   <div class="container" style="margin: 0 auto;">
         <form class="row" action="/manager/linkAction" method="post" id="employeeLinkForm">
             <div class="mb-3 row align-items-center justify-content-around">
                     <button type="submit" class="btn btn-info mb-3 w-50">Move Employee</button>
             </div>
         </form>
-    </div>
-</div>
+</main>
 <script src="/moveemployee.js"></script>
 
 

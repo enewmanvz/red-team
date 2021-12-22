@@ -13,13 +13,13 @@ const warehouses = [
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 2000,
-      managerID: 2  },
+      managerID: 1  },
       
       { name: 'Sears3', 
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 3000,
-      managerID: 3  }
+      managerID: 1  }
 
 
 
@@ -40,15 +40,14 @@ const palettes = [
     {
         capacity: 600, 
         boxcount: 200,
-       
         warehouseID: 2,
-        employeeID: 1
+        employeeID: 2
     },
     {
         capacity: 700, 
         boxcount: 300,
-        employeeID: 3,
-        warehouseID: 3
+        employeeID: 2,
+        warehouseID: 2
     }
 
 
@@ -82,27 +81,19 @@ const boxes = [
 
 const employees = [
     {
-        firstName: 'Employee',
-        lastName: 'One',
+        firstName: 'Muneer',
+        lastName: 'Malik',
         warehouseID: 1,
         managerID: 1,
-        userID: 3
+        userID: 2
         
     },
     {
-        firstName: 'Employee',
-        lastName: 'Two',
+        firstName: 'Iyanna',
+        lastName: 'Iyanna',
         warehouseID: 2,
-        managerID: 2,
+        managerID: 1,
         userID: 3
-    },
-    {
-        firstName: 'Employee',
-        lastName: 'Three',
-        warehouseID: 3,
-        managerID: 3,
-        userID: 1
-        
     }
 
 
@@ -112,26 +103,12 @@ const employees = [
 
 const managers = [
     {
-        firstName: 'Manager',
-        lastName: 'One',
-        userID: 2
-        
-        
-    },
-    {
-        firstName: 'Manager',
-        lastName: 'Two',
+        firstName: 'Crystal',
+        lastName: 'Johnson',
         userID: 1
         
-    },
-    {
-        firstName: 'Manager',
-        lastName: 'Three',
-        userID: 3
         
     }
-
-
     
 ]
 
@@ -154,7 +131,28 @@ const users = [
     {
         email: 'iyanna@test.com',
         password: "somepassword",
+        role: 'employee'
+        
+    },
+    {
+        email: 'crystal@crystal.com',
+        password: "somepassword",
         role: 'manager'
+       
+        
+
+        
+    },
+    {
+        email: 'mmalik@mmalik.com',
+        password: "somepassword",
+        role: 'employee'
+       
+    },
+    {
+        email: 'iyanna@iyanna.com',
+        password: "somepassword",
+        role: 'employee'
         
     }
 

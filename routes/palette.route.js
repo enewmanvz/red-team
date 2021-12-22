@@ -73,28 +73,38 @@ palette.post('/addAction', async (req, res) => {
 
   // we need to check if this can be added
 
-  // do this check later, lets add first 
+   if (paletteCapacity > warehouseRunningCapacity) {
+    const alertError = "Warehouse Capacity exceeds, please select another palette"
+    res.render("error", {alertError})
+   
 
 
-  const warehousePalette  = {
-    paletteID: selectedPaletteValue,
-    warehouseID:warehouseID
-}
+   }else {
+    
+    
+        const warehousePalette  = {
+          paletteID: selectedPaletteValue,
+          warehouseID:warehouseID
+        }
+      
+        const newEmployee = await WarehousePalette.create(warehousePalette)
+        // now update the running capacity for warehouse
+        const updatewarehouseRunningCapacity = warehouseRunningCapacity - paletteCapacity
+      
+        whattoUpdate = {
+        runningCapacity: updatewarehouseRunningCapacity
+      
+        }
+  
+        let updateWarehouse = await Warehouse.update(whattoUpdate, {
+          where : {id: warehouseID}
+        })
+  
+        res.redirect('/employee')
+   }
 
-const newEmployee = await WarehousePalette.create(warehousePalette)
-// now update the running capacity for warehouse
-const updatewarehouseRunningCapacity = warehouseRunningCapacity - paletteCapacity
 
-whattoUpdate = {
-  runningCapacity: updatewarehouseRunningCapacity
-
-}
-
-let updateWarehouse = await Warehouse.update(whattoUpdate, {
-  where : {id: warehouseID}
-})
-
-res.redirect('/employee')
+  
 })
 
 

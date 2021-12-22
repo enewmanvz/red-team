@@ -8,7 +8,6 @@ selectEmployeeOption.addEventListener('change', async () => {
      const selectEmployeeValue = document.getElementById(selectEmployeeOption.id).value;
      const linkEmployeeForm = document.getElementById("employeeLinkForm");
      // check to see if this element already exists
-        
         if (firstTimeEmployee) {
             let newDiv = document.createElement('input');
             newDiv.type = "hidden";

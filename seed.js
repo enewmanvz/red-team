@@ -7,19 +7,22 @@ const warehouses = [
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 1000,
-      managerID: 1 },
+      managerID: 1,
+      runningCapacity: 1000 },
       
       { name: 'Sears2', 
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 2000,
-      managerID: 1  },
+      managerID: 1,
+      runningCapacity: 2000  },
       
       { name: 'Sears3', 
       location: 'Irving, TX', 
       image: 'http://www.dummy.com',
       capacity: 3000,
-      managerID: 1  }
+      managerID: 1,
+      runningCapacity: 3000  }
 
 
 
@@ -34,20 +37,30 @@ const palettes = [
         capacity: 500, 
         boxcount: 100,
         warehouseID: 1,
-        employeeID: 1
+        employeeID: 1,
+        runningCapacity: 500,
+        runningBoxCount: 100,
+        label: 'Palette 500'
+
 
     },
     {
         capacity: 600, 
         boxcount: 200,
-        warehouseID: 2,
-        employeeID: 2
+        warehouseID: 1,
+        employeeID: 1,
+        runningCapacity: 600,
+        runningBoxCount: 200,
+        label: 'Palette 600'
     },
     {
         capacity: 700, 
         boxcount: 300,
-        employeeID: 2,
-        warehouseID: 2
+        employeeID: 1,
+        warehouseID: 1,
+        runningCapacity: 700,
+        runningBoxCount: 300,
+        label: 'Palette 700'
     }
 
 
@@ -57,21 +70,26 @@ const palettes = [
 const boxes = [
     {
         size: 300, 
-        label: 100,
+        label: 'Battery',
         paletteID: 1,
-        warehouseID: 1
+        warehouseID: 1,
+        quantity: 234
+        
     },
     {
         size: 400, 
-        label: 100,
+        label: 'Mobile Phones',
         paletteID: 2,
-        warehouseID: 2
+        warehouseID: 2,
+        quantity: 455,
+
     },
     {
         size: 600, 
-        label: 100,
+        label: 'Books',
         paletteID: 3,
-        warehouseID: 3
+        warehouseID: 3,
+        quantity: 432
     }
 
 

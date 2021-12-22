@@ -3,7 +3,7 @@ let firstTime = true
 selectOption.addEventListener('change', async () => {
      // need to attach the id with this form
      const selectValue = document.getElementById(selectOption.id).value
-     const deleteWarehouseForm = document.getElementById("warehouseDeleteForm");
+     const addPaletteForm = document.getElementById("addPaletteForm");
      // check to see if this element already exists
         
         if (firstTime) {
@@ -12,7 +12,7 @@ selectOption.addEventListener('change', async () => {
             newDiv.id = "selectValue";
             newDiv.name = "selectedValue"
             newDiv.value = selectValue;
-            deleteWarehouseForm.appendChild(newDiv)
+            addPaletteForm.appendChild(newDiv)
             firstTime = false
         } else {
             let hiddenElement = document.getElementById("selectValue")

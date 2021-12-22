@@ -22,7 +22,14 @@ const warehouses = [
       image: 'http://www.dummy.com',
       capacity: 3000,
       managerID: 1,
-      runningCapacity: 3000  }
+      runningCapacity: 3000  },
+
+      { name: 'Sears4', 
+      location: 'Irving, TX', 
+      image: 'http://www.dummy.com',
+      capacity: 7000,
+      managerID: 1,
+      runningCapacity: 7000  }
 
 
 
@@ -201,7 +208,7 @@ const users = [
 const warehousepalette = [
     {
         
-        paletteID: 1,
+        paletteID: 5,
         warehouseID:1
         
        
@@ -228,7 +235,7 @@ const seed = async () => {
      
       await Palette.bulkCreate(palettes, {validate: true})
       await Box.bulkCreate(boxes, {validate: true})
-      await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
+      //await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
      
      
     } catch (error) {

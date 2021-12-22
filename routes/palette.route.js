@@ -47,6 +47,57 @@ palette.get('/select', async (req, res) => {
   })
 
 
+  // form submit to add an employee
+palette.post('/addAction', async (req, res) => {
+  // this userid is a loggedIn userID
+  const loggedInUser = req.session.userID
+  // we need to do the following
+  // insert record in WarehousePalette
+  // 
+  // check for error if this can be added otherwise return error
+
+  // we will need the capacity for the warehouse
+  // and running capacity to the warehouse table
+  const warehouseID = req.session.warehouseID
+  //first get the ware house info
+  const singleWarehouse = await Warehouse.findByPk(warehouseID)
+  const warehouseCapacity = singleWarehouse.warehouseCapacity
+  const warehouseRunningCapacity = singleWarehouse.runningCapacity
+  // get the palette info now
+  const selectedPaletteValue = req.body.selectedValue
+  console.log("Palette" + selectedPaletteValue)
+  console.log("Warehouse" + warehouseID)
+
+  const singlePalette = await Palette.findByPk(selectedPaletteValue)
+  const paletteCapacity = singlePalette.capacity
+
+  // we need to check if this can be added
+
+  // do this check later, lets add first 
+
+
+  const warehousePalette  = {
+    paletteID: selectedPaletteValue,
+    warehouseID:warehouseID
+}
+
+const newEmployee = await WarehousePalette.create(warehousePalette)
+// now update the running capacity for warehouse
+const updatewarehouseRunningCapacity = warehouseRunningCapacity - paletteCapacity
+
+whattoUpdate = {
+  runningCapacity: updatewarehouseRunningCapacity
+
+}
+
+let updateWarehouse = await Warehouse.update(whattoUpdate, {
+  where : {id: warehouseID}
+})
+
+res.redirect('/employee')
+})
+
+
 
 
 

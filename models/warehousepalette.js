@@ -13,7 +13,7 @@ WarehousePalette.init({
         type: DataTypes.INTEGER,
         primaryKey: false,
         references: {
-          model: Warehouse, 
+          model: Palette, 
           key: 'id'
         }
       },
@@ -21,7 +21,7 @@ WarehousePalette.init({
         type: DataTypes.INTEGER,
         primaryKey: false,
         references: {
-          model: Palette, 
+          model: Warehouse, 
           key: 'id'
         }
       }

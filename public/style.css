@@ -61,11 +61,10 @@
     animation: coolers 10s ease-in-out infinite;
 }
 
-#login {
+.login {
     /* background-color: #D4D8D7; */
     background-color: #E0A800;
     color: #2A2828;
-
 }
 
 #loginform {
@@ -96,7 +95,6 @@
 }
 
 .labels {
-    animation: labelBackground 25s ease-in infinite;
     padding: 3px;
 }
 

@@ -90,14 +90,11 @@ const employees = [
     },
     {
         firstName: 'Iyanna',
-        lastName: 'Iyanna',
+        lastName: 'Bell',
         warehouseID: 2,
         managerID: 1,
         userID: 3
     }
-
-
-    
 ]
 
 
@@ -106,61 +103,48 @@ const managers = [
         firstName: 'Crystal',
         lastName: 'Johnson',
         userID: 1
-        
-        
     }
-    
 ]
 
 const users = [
     {
+        name: 'Crystal',
         email: 'crystal@test.com',
         password: "somepassword",
         role: 'manager'
-       
-        
-
-        
     },
     {
+        name: 'Muneer',
         email: 'mmalik@test.com',
         password: "somepassword",
         role: 'employee'
-       
     },
     {
+        name: 'Iyanna',
         email: 'iyanna@test.com',
         password: "somepassword",
         role: 'employee'
-        
     },
     {
+        name: 'Crystal J',
         email: 'crystal@crystal.com',
         password: "somepassword",
         role: 'manager'
-       
-        
-
-        
     },
     {
+        name: 'Muneer M',
         email: 'mmalik@mmalik.com',
         password: "somepassword",
         role: 'employee'
        
     },
     {
+        name: 'Iyanna B',
         email: 'iyanna@iyanna.com',
         password: "somepassword",
-        role: 'employee'
-        
+        role: 'employee'   
     }
-
-
-    
 ]
-
-
 
 
 const seed = async () => {

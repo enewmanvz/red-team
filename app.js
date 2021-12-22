@@ -34,18 +34,18 @@ app.use(express.static('public'));
 
 
 // various routes
-const {login} = require('./routes/login.route')
-const {employee} = require('./routes/employee.route')
-const {manager} = require('./routes/manager.route')
-const {warehouse} = require('./routes/warehouse.route')
-const {main} = require('./routes/main.route')
+const {login} = require('./routes/login.route');
+const {employee} = require('./routes/employee.route');
+const {manager} = require('./routes/manager.route');
+const {warehouse} = require('./routes/warehouse.route');
+const {main} = require('./routes/main.route');
 
 // Import my routes into the path '/'
 app.use('/login', login);
 app.use('/employee/', employee);
 app.use('/manager/', manager);
 app.use('/warehouse/', warehouse);
-app.use('/', main)
+app.use('/', main);
 
 
 

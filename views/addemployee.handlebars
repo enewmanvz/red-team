@@ -1,0 +1,30 @@
+{{> managermenu}}
+<main id="add">
+    <h3 class="mt-5 text-center mb-5 bg-dark">Add Employee</h3>  
+    <div class="container" style="margin: 0 auto;">
+        <form class="row" action="/employee/addAction" method="post">
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="firstName" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">First Name</span></label>
+                <input type="text"  name="firstName" class="col-6 text-center form-control" id="firstName" style="width: 25%;" autocomplete="off">
+            </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="lastName" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">Last Name</span></label>
+                <input type="text"  name="lastName" class="col-6 text-center form-control" id="lastName" style="width: 25%;" autocomplete="off">
+            </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="email" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">Email</span></label>
+                <input type="text"  name="email" class="col-6 text-center form-control" id="email" style="width: 25%;" autocomplete="off">
+            </div>
+            <div class="mb-3 row mx-auto text-center align-middle">
+                <label for="password" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels">Password</span></label>
+                <input type="password"  name="password" class="col-6 text-center form-control" id="password" style="width: 25%;" autocomplete="off">
+            </div>
+            <div class="d-grid gap-2 g-4 col-8 mx-auto">
+                    <button type="submit" class="btn btn-info mb-3 pb-3">Add Employee</button>
+            </div>
+            
+           
+                
+        </form>
+    </div>
+</main>

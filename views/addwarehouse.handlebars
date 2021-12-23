@@ -5,19 +5,19 @@
         <form class="row" action="/warehouse/addAction" method="post">
             <div class="mb-3 mt-4 row mx-auto text-center align-middle">
                 <label for="name" class="col-sm-6 col-form-label align-middle fw-bolder"><span class="labels"> Name</span></label>
-                <input type="text"  name="name" class="col-6 text-center form-control" id="name" style="width: 25%;" autocomplete="off"/>
+                <input type="text"  name="name" class="col-6 text-center form-control" id="name" style="width: 25%;" autocomplete="off" required/>
             </div>
             <div class="mb-3 row mx-auto text-center align-middle">
                 <label for="location" class="col-sm-6 col-form-label fw-bolder"><span class="labels">Location</span></label>
-                <input type="text" name="location" class="col-6 text-center form-control" id="location" style="width: 25%;" autocomplete="off">
+                <input type="text" name="location" class="col-6 text-center form-control" id="location" style="width: 25%;" autocomplete="off" required>
             </div>
             <div class="mb-3 row mx-auto text-center align-middle">
                 <label for="image" class="col-sm-6 col-form-label fw-bolder"><span class="labels">Image URL</span></label>
-                <input type="text" name="image" class="col-6 form-control" id="image" style="width: 25%;" autocomplete="off">
+                <input type="url" name="image" class="col-6 form-control" id="image" style="width: 25%;" autocomplete="off" required>
             </div>
             <div class="mb-3 row mx-auto text-center align-middle">
                 <label for="capacity" class="col-sm-6 col-form-label fw-bolder"><span class="labels">Capacity</span></label>
-                <input type="number" name="capacity" class="col-6 form-control" id="capacity" style="width: 25%;" autocomplete="off">
+                <input type="number" name="capacity" class="col-6 form-control" id="capacity" style="width: 25%;" autocomplete="off" required>
             </div>
                 <div class="d-grid gap-2 g-4 col-8 mx-auto">
                     <button type="submit" class="btn btn-info mb-3 pb-3">Add Warehouse</button>

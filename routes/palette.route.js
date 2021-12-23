@@ -121,19 +121,28 @@ palette.get('/remove', async (req, res) => {
  
  // we need to check if these palettes have already been added
  const palettesForWarehouse = await WarehousePalette.findAll({where: {warehouseID: warehouseID}})
- const arrayofPalettes = []
- for(let count = 0; count < palettesForWarehouse.length; count ++) {
+ const alertError = "Please first add the palette to be removed"
+ if (palettesForWarehouse.length == 0) {
+  res.render('error', {alertError})
+ } else {
+  
+  const arrayofPalettes = []
+  for(let count = 0; count < palettesForWarehouse.length; count ++) {
   arrayofPalettes.push(palettesForWarehouse[count].paletteID)
- }
+  }
 
- const palettesForUserID = await Palette.findAll(
+  const palettesForUserID = await Palette.findAll(
    {where: {id: {
               [Op.in]: arrayofPalettes
           } 
   }})
  
- const palettesArray = palettesForUserID
- res.render('removePalette', {singleWarehouse, palettesArray})
+  const palettesArray = palettesForUserID
+  res.render('removePalette', {singleWarehouse, palettesArray})
+
+ }
+
+ 
 
 
  
@@ -145,6 +154,40 @@ palette.get('/remove', async (req, res) => {
 
 
 
+
+palette.post('/removeAction', async (req, res) => {
+  // this userid is a loggedIn userID
+  const loggedInUser = req.session.userID
+  const warehouseID = req.session.warehouseID
+  const selectedPaletteValue = req.body.selectedValue
+  //first get the ware house info
+  const singleWarehouse = await Warehouse.findByPk(warehouseID)
+  const warehouseCapacity = singleWarehouse.warehouseCapacity
+  const warehouseRunningCapacity = singleWarehouse.runningCapacity
+  // delete the palette from WarehousePalette
+  const deleteWarehousePalette = await WarehousePalette.destroy({
+    where : {paletteID: selectedPaletteValue}
+  })
+
+  const singlePalette = await Palette.findByPk(selectedPaletteValue)
+  const paletteCapacity = singlePalette.capacity
+  const updatewarehouseRunningCapacity = warehouseRunningCapacity + paletteCapacity
+
+  whattoUpdate = {
+    runningCapacity: updatewarehouseRunningCapacity
+  
+    }
+
+    const updateWarehouse = await Warehouse.update(whattoUpdate, {
+      where : {id: warehouseID}
+    })
+
+  res.redirect('/employee')
+   
+
+
+  
+})
 
 
 

@@ -4,12 +4,19 @@ class User extends Model {}
 
 User.init({
    
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+   
     role: DataTypes.STRING
 }, {
     sequelize: sequelizedb,
-    timestamps: true,
+    timestamps: false,
 });
 
 module.exports = {User};

@@ -5,6 +5,7 @@ const {Palette} = require('../models/palette');
 const {Warehouse} = require('../models/warehouse');
 const {WarehousePalette} = require('../models/warehousepalette')
 const { Op } = require("sequelize");
+const {sequelizedb } = require('../db.js'); 
 
 
 
@@ -189,6 +190,50 @@ palette.post('/removeAction', async (req, res) => {
 
   
 })
+
+
+palette.get('/empty', async (req, res) => {
+  // this userid is a loggedIn userID
+  const loggedInUser = req.session.userID
+  const warehouseID = req.session.warehouseID
+  
+  //first get the ware house info
+  const singleWarehouse = await Warehouse.findByPk(warehouseID)
+  
+  
+  
+  const palettesArray = await Palette.findAll(
+    {where: {capacity: {
+               [Op.eq]: sequelizedb.col('runningCapacity')
+           } 
+   }})
+
+  res.render('emptypalette', {singleWarehouse, palettesArray})
+   
+
+
+  
+})
+
+palette.post('/emptyAction', async (req, res) => {
+  // this userid is a loggedIn userID
+  const loggedInUser = req.session.userID
+  const warehouseID = req.session.warehouseID
+  const selectedPalette = req.body.selectedValue
+
+  const deleteWarehousePalette = await Palette.destroy({
+    where : {id: selectedPalette}
+  })
+
+  res.redirect('/employee')
+  
+   
+
+
+  
+})
+
+
 
 
 

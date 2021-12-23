@@ -1,6 +1,9 @@
 const {Warehouse, Employee, Palette, Box, Manager, User, WarehousePalette, PaletteBox} = require('./initializedb');
 const {sequelizedb } = require('./db.js'); 
-
+const bcrypt = require('bcrypt');
+//bcrypt
+//set number of salt round for bcrypt encryption
+const saltRounds = 10;
 
 const warehouses = [
     { name: 'Sears1', 
@@ -160,27 +163,6 @@ const users = [
         password: "somepassword",
         role: 'employee'
         
-    },
-    {
-        email: 'crystal@crystal.com',
-        password: "somepassword",
-        role: 'manager'
-       
-        
-
-        
-    },
-    {
-        email: 'mmalik@mmalik.com',
-        password: "somepassword",
-        role: 'employee'
-       
-    },
-    {
-        email: 'iyanna@iyanna.com',
-        password: "somepassword",
-        role: 'employee'
-        
     }
 
     
@@ -226,7 +208,15 @@ const seed = async () => {
     try {
       console.log('Seeding Start')
       await sequelizedb.sync({force: true})
-      await User.bulkCreate(users, {validate: true})
+      const salt = await bcrypt.genSalt(10);
+      //await User.bulkCreate(users, {validate: true})
+      let password = 'somepassword'
+      for (let count = 0; count < users.length; count++) {
+        hashpassword = await bcrypt.hash(users[count].password, salt);
+        await User.create(
+            {email:users[count].email,'password':hashpassword, role: users[count].role})
+      }
+     
       await Manager.bulkCreate(managers, {validate: true})
       await Warehouse.bulkCreate(warehouses, {validate: true})
       await Employee.bulkCreate(employees, {validate: true})
@@ -234,7 +224,7 @@ const seed = async () => {
      
       await Palette.bulkCreate(palettes, {validate: true})
       await Box.bulkCreate(boxes, {validate: true})
-      //await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
+      await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
      
      
     } catch (error) {

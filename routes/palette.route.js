@@ -78,7 +78,7 @@ palette.post('/addAction', async (req, res) => {
   const singleEmployeeIDForUserID = await Employee.findOne({where: {userID: loggedInUser}})
   const employeeID = singleEmployeeIDForUserID.id
   // we need to check if this can be added
-
+  
    if (paletteCapacity > warehouseRunningCapacity) {
     const alertError = "Warehouse Capacity exceeds, please select another palette"
     res.render("error", {alertError})
@@ -91,7 +91,7 @@ palette.post('/addAction', async (req, res) => {
         const warehousePalette  = {
           paletteID: selectedPaletteValue,
           warehouseID:warehouseID,
-          employeeID: employeeID
+          employeeID: loggedInUser
         }
       
         const newWarehousePalette = await WarehousePalette.create(warehousePalette)

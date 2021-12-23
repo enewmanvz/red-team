@@ -24,7 +24,8 @@ box.get('/select', async (req, res) => {
    
 
    // only get palettes for this warehouse
-   const palettesForWarehouse = await WarehousePalette.findAll({where: {warehouseID: warehouseID, employeeID: loggedInUser}})
+    
+   const palettesForWarehouse = await WarehousePalette.findAll({where: {warehouseID: warehouseID}})
    if (palettesForWarehouse.length == 0) {
         const alertError = "Please first add palette"
         res.render('error', {alertError})

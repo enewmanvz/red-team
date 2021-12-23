@@ -4,6 +4,10 @@ const employee = express.Router();
 const {Employee} = require('../models/employee');
 const {User} = require('../models/user');
 const {Warehouse} = require('../models/warehouse');
+const bcrypt = require('bcrypt');
+//bcrypt
+//set number of salt round for bcrypt encryption
+const salt = 10;
 
 
 
@@ -113,9 +117,10 @@ employee.post('/updateAction', async (req, res) => {
          where : {managerID: userID, id: selectedValue}
      })
      const singleEmployee = await Employee.findOne({where: {id: selectedValue, managerID: userID}})
+     hashpassword = await bcrypt.hash(req.body.password, salt);
      whattoUpdate = {
         email: req.body.email,
-        password:  req.body.password
+        password:  hashpassword
         
 
     }

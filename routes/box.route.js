@@ -53,24 +53,21 @@ box.get('/select', async (req, res) => {
         // this means none of the boxes have been added
         // I can use allBoxes
         returnBox = allBoxes
-        res.render('addbox', {returnPalette, returnBox, singleWarehouse})
+        res.render('addbox', {returnPalette, returnBox})
     }else {
         // I need to get boxes which have not been added
+        const boxArray  = allBoxes.filter(function(array_el){
+            return paletteBoxes.filter(function(anotherOne_el){
+             return array_el.id == anotherOne_el.boxID 
+            }).length == 0
+          });
+      
+          returnBox = boxArray
 
-        const arrayofBoxes = []
-        for(let count = 0; count < paletteBoxes.length; count ++) {
-            arrayofBoxes.push(paletteBoxes[count].boxID)
-        }
 
-        const boxesalreadyAdded = await Box.findAll(
-            {where: {id: {
-              [Op.in]: arrayofBoxes
-            } 
+
         
-        }})
-
-        returnBox = boxesalreadyAdded
-        res.render('addbox', {returnPalette, returnBox, singleWarehouse})
+        res.render('addbox', {returnPalette, returnBox})
 
     }
     
@@ -84,62 +81,58 @@ box.get('/select', async (req, res) => {
    box.post('/addAction', async (req, res) => {
     // this userid is a loggedIn userID
     const loggedInUser = req.session.userID
-    // we need to do the following
-    // insert record in WarehousePalette
-    // 
-    // check for error if this can be added otherwise return error
-  
-    // we will need the capacity for the warehouse
-    // and running capacity to the warehouse table
     const warehouseID = req.session.warehouseID
-    //first get the ware house info
-    const singleWarehouse = await Warehouse.findByPk(warehouseID)
-    const warehouseCapacity = singleWarehouse.warehouseCapacity
-    const warehouseRunningCapacity = singleWarehouse.runningCapacity
-    // get the palette info now
-    const selectedPaletteValue = req.body.selectedValue
-    console.log("Palette" + selectedPaletteValue)
-    console.log("Warehouse" + warehouseID)
-  
-    const singlePalette = await Palette.findByPk(selectedPaletteValue)
-    const paletteCapacity = singlePalette.capacity
-  
-    // we need to check if this can be added
-  
-     if (paletteCapacity > warehouseRunningCapacity) {
-      const alertError = "Warehouse Capacity exceeds, please select another palette"
-      res.render("error", {alertError})
-     
-  
-  
-     }else {
-      
-      
-          const warehousePalette  = {
-            paletteID: selectedPaletteValue,
+    
+    const paletteSelectedValue = req.body.selectedPaletteValue
+    const boxSelectedValue = req.body.selectedBoxValue
+    
+    const singleBox = await Box.findByPk(boxSelectedValue)
+    const singlePalette = await Palette.findByPk(paletteSelectedValue)
+
+    const paletteRunningCapacity = singlePalette.runningCapacity
+    const boxCapacity = singleBox.size
+
+    //console.log("Box size" + boxCapacity )
+    //console.log("Palette size" + paletteRunningCapacity )
+
+
+    if (boxCapacity > paletteRunningCapacity ) {
+        const alertError = "Palette Capacity exceeds, please select another box"
+        res.render("error", {alertError})
+    } else {
+
+        const paletteBox  = {
+            paletteID: paletteSelectedValue,
             warehouseID:warehouseID,
-            employeeID: loggedInUser
+            employeeID: loggedInUser,
+            boxID: boxSelectedValue
           }
         
-          const newWarehousePalette = await WarehousePalette.create(warehousePalette)
-          // now update the running capacity for warehouse
-          const updatewarehouseRunningCapacity = warehouseRunningCapacity - paletteCapacity
+          const newPaletteBox = await PaletteBox.create(paletteBox)
+          // now update the running capacity for palette
+          const updatepaletteRunningCapacity = paletteRunningCapacity - boxCapacity
         
           whattoUpdate = {
-            runningCapacity: updatewarehouseRunningCapacity
+            runningCapacity: updatepaletteRunningCapacity
         
           }
     
-          let updateWarehouse = await Warehouse.update(whattoUpdate, {
-            where : {id: warehouseID}
+          let updatePalette = await Palette.update(whattoUpdate, {
+            where : {id: paletteSelectedValue}
           })
     
           res.redirect('/employee')
      }
+
+
+
+    })
+    
+   
   
   
     
-  })
+  
 
 
 module.exports = {box};

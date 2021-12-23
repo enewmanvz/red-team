@@ -5,7 +5,7 @@ let firstTimeBox = true
 
 selectPaletteOption.addEventListener('change', async () => {
      // need to attach the id with this form
-     const selectPaletteValue = document.getElementById(selectEmployeeOption.id).value
+     const selectPaletteValue = document.getElementById(selectPaletteOption.id).value
      const addBoxForm = document.getElementById("addBoxForm");
      // check to see if this element already exists
         

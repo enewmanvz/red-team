@@ -1,6 +1,30 @@
 {{> managermenu}}
+<body class="dashboard">
 <main class="container">
-    <h1 class="text-center">Manager Dashboard</h1>
-    <img class="img-fluid rounded mx-auto d-block" src="https://media.giphy.com/media/K9SVehuZFunM4/giphy-downsized-large.gif" alt="gif of boxes falling from shelves">
+    <h1 class="text-center text-info">Manager Dashboard</h1>
+    <img class="img-thumbnail d-block mx-auto" src="https://media.giphy.com/media/K9SVehuZFunM4/giphy-downsized-large.gif" alt="gif of boxes falling from shelves">
+    
+    {{!-- table to display employees --}}
+    <table id="employee_table" class="table table-info table-striped mt-3">
+    <thead>
+        <tr>  
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Warehouse</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each populate}}
+        <tr>
+        <th scope="row">{{this.id}}</th>
+        <td>{{this.firstName}}</td>
+        <td>{{this.lastName}}</td>
+        <td>{{this.warehouseID}}</td>
+        {{/each}}
+    </tbody>
+    </table>
 </main>
-
+<br><br>
+<script src="/manager.route.js"></script>
+</body>

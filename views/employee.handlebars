@@ -1,17 +1,17 @@
 {{> employeemenu}}
+<body class="dashboard">
 <div class="container">
-    <h3>Welcome to Employee Dashboard</h3>
-
+    <h3 class="text-center text-light">Welcome to Employee Dashboard</h3>
 </div>
-<div class="container">
-    <h4>You are currently assigned to the following specific site</h4>
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+<div class="container login pb-3">
+    <h4 class="text-center">You are currently assigned to the following site:</h4>
+    <div class="card text-center border-info mx-auto" style="width: 18rem;">
+        <img src="https://images.unsplash.com/photo-1633959592096-9d9a339b99fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" class="card-img-top" alt="front of warehouse">
         <div class="card-body">
             <h5 class="card-title">Site Name: {{singleWarehouse.name}}</h5>
             <p class="card-text">Location: {{singleWarehouse.location}}</p>
-             <p class="card-text">Capacity: {{singleWarehouse.capacity}}</p>
+            <p class="card-text">Capacity: {{singleWarehouse.capacity}}</p>
         </div>
     </div>
-
 </div>
+</body>

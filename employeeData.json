@@ -1,0 +1,6 @@
+{
+    "data": [
+        {"userId": 3, "firstName": "Iyanna", "lastName" : "Bell", "warehouseID": 2, "managerID": 1},
+        {"userId": 2, "firstName": "Muneer", "lastName" : "Malik", "warehouseID": 1, "managerID": 1}
+    ]  
+}

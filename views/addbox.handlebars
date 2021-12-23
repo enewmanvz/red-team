@@ -1,0 +1,36 @@
+{{> employeemenu}}
+<div class="container">
+    <h3 class="mt-5 text-center mb-5">Add Box</h3>  
+</div>
+<div class="container">
+
+     
+     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_palette_value">
+            <option selected>Select Palette...</option>
+             {{#each returnPalette}}
+                <option value={{this.id}}>{{this.label}} &nbsp; Available Capacity &nbsp;{{this.runningCapacity}}</option>
+            {{/each}}
+    </select>   
+    <br>
+     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_box_value">
+            <option selected>Select Box...</option>
+             {{#each returnBox}}
+                <option value={{this.id}}>{{this.label}} &nbsp; Size - {{this.size}} </option>
+            {{/each}}
+    </select>  
+</div>
+
+   <div class="container" style="margin: 0 auto;">
+        <form class="row" action="/box/addAction" method="post" id="addBoxForm">
+            <div class="mb-3 row align-items-center justify-content-around">
+                    <button type="submit" class="btn btn-info mb-3 w-50">Add Box</button>
+            </div>
+        </form>
+        {{alertError}}
+    </div>
+</div>
+<script src="/addbox.js"></script>
+
+
+    
+    

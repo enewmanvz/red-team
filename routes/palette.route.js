@@ -18,7 +18,7 @@ palette.get('/select', async (req, res) => {
    //first get the ware house info
    const singleWarehouse = await Warehouse.findByPk(warehouseID)
    // get all palettes for this user id
-   const palettesForUserID = await Palette.findAll({where: {employeeID: loggedInUser, warehouseID: warehouseID}})
+   const palettesForUserID = await Palette.findAll()
    // we need to check if these palettes have already been added
    const palettesForWarehouse = await WarehousePalette.findAll({where: {warehouseID: warehouseID}})
    let palettesArray = palettesForUserID
@@ -84,15 +84,16 @@ palette.post('/addAction', async (req, res) => {
     
         const warehousePalette  = {
           paletteID: selectedPaletteValue,
-          warehouseID:warehouseID
+          warehouseID:warehouseID,
+          employeeID: loggedInUser
         }
       
-        const newEmployee = await WarehousePalette.create(warehousePalette)
+        const newWarehousePalette = await WarehousePalette.create(warehousePalette)
         // now update the running capacity for warehouse
         const updatewarehouseRunningCapacity = warehouseRunningCapacity - paletteCapacity
       
         whattoUpdate = {
-        runningCapacity: updatewarehouseRunningCapacity
+          runningCapacity: updatewarehouseRunningCapacity
       
         }
   

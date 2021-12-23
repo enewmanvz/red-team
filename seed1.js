@@ -43,6 +43,8 @@ const palettes = [
     {
         capacity: 500, 
         boxcount: 100,
+        warehouseID: 1,
+        employeeID: 2,
         runningCapacity: 500,
         runningBoxCount: 100,
         label: 'Palette Capacity 500, Box Count 100'
@@ -52,6 +54,8 @@ const palettes = [
     {
         capacity: 600, 
         boxcount: 200,
+        warehouseID: 1,
+        employeeID: 2,
         runningCapacity: 600,
         runningBoxCount: 200,
         label: 'Palette Capacity 600, Box Count 200'
@@ -59,6 +63,8 @@ const palettes = [
     {
         capacity: 700, 
         boxcount: 300,
+        employeeID: 2,
+        warehouseID: 1,
         runningCapacity: 700,
         runningBoxCount: 300,
         label: 'Palette Capacity, 700 Box Count 300'
@@ -66,6 +72,8 @@ const palettes = [
     {
         capacity: 200, 
         boxcount: 30,
+        employeeID: 2,
+        warehouseID: 1,
         runningCapacity: 200,
         runningBoxCount: 30,
         label: 'Palette Capacity, 200 Box Count 30'
@@ -73,6 +81,8 @@ const palettes = [
     {
         capacity: 100, 
         boxcount: 10,
+        employeeID: 2,
+        warehouseID: 1,
         runningCapacity: 100,
         runningBoxCount: 10,
         label: 'Palette Capacity 100, Box Count 10'
@@ -86,18 +96,24 @@ const boxes = [
     {
         size: 300, 
         label: 'Battery',
+        paletteID: 1,
+        warehouseID: 1,
         quantity: 234
         
     },
     {
         size: 400, 
         label: 'Mobile Phones',
+        paletteID: 2,
+        warehouseID: 2,
         quantity: 455,
 
     },
     {
         size: 600, 
         label: 'Books',
+        paletteID: 3,
+        warehouseID: 3,
         quantity: 432
     }
 
@@ -194,21 +210,6 @@ const warehousepalette = [
         
         paletteID: 5,
         warehouseID:1
-        
-       
-        
-
-        
-    }
-    
-   
-]
-
-const palettebox = [
-    {
-        
-        paletteID: 5,
-        boxID:1
         
        
         

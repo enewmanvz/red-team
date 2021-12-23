@@ -1,12 +1,13 @@
 const { sequelizedb,DataTypes, Model } = require('../db');
 const { Palette } = require('./palette');
-const { Warehouse } = require('./warehouse');
+const { Box } = require('./box');
 const { Employee } = require('./employee');
+const { Warehouse } = require('./warehouse');
 
-class WarehousePalette extends Model {}
+class PaletteBox extends Model {}
 
-WarehousePalette.init({
-  warehousepaletteID: {
+PaletteBox.init({
+  paletteboxID: {
     type: DataTypes.INTEGER,
     primaryKey: true
   },
@@ -18,14 +19,15 @@ WarehousePalette.init({
           key: 'id'
         }
       },
-  warehouseID: {
+  boxID: {
         type: DataTypes.INTEGER,
         primaryKey: false,
         references: {
-          model: Warehouse, 
+          model: Box, 
           key: 'id'
         }
       },
+  
   employeeID: {
         type: DataTypes.INTEGER,
         primaryKey: false,
@@ -33,11 +35,19 @@ WarehousePalette.init({
           model: Employee, 
           key: 'id'
         }
-      }
+      },
+  warehouseID: {
+        type: DataTypes.INTEGER,
+        primaryKey: false,
+        references: {
+          model: Warehouse, 
+          key: 'id'
+        }
+   }
     
 }, {
     sequelize: sequelizedb,
     timestamps: true,
 });
 
-module.exports = {WarehousePalette};
+module.exports = {PaletteBox};

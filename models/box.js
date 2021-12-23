@@ -5,8 +5,6 @@ class Box extends Model {}
 Box.init({
     size : DataTypes.INTEGER,
     label: DataTypes.STRING,
-    paletteID: DataTypes.INTEGER,
-    warehouseID: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER
     
 }, {

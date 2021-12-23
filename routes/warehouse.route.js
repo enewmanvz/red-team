@@ -22,6 +22,7 @@ warehouse.post('/addAction', async (req, res) => {
           location:  req.body.location,
           image:  req.body.image,
           capacity:  req.body.capacity,
+          runningCapacity: req.body.capacity,
           managerID: userID
          
     }
@@ -74,6 +75,7 @@ warehouse.post('/updateAction', async (req, res) => {
           location:  req.body.location,
           image:  req.body.image,
           capacity:  req.body.capacity,
+          runningCapacity: req.body.capacity
           
 
      }

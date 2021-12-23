@@ -214,7 +214,7 @@ const seed = async () => {
      
       await Palette.bulkCreate(palettes, {validate: true})
       await Box.bulkCreate(boxes, {validate: true})
-      await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
+      //await WarehousePalette.bulkCreate(warehousepalette, {validate: true})
      
      
     } catch (error) {

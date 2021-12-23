@@ -92,7 +92,9 @@ warehouse.post('/updateAction', async (req, res) => {
 warehouse.post('/deleteAction', async (req, res) => {
     
     const userID = req.session.userID
+   
     const selectedValue = req.body.selectedValue
+    console.log("I am in delete" + selectedValue )
     const deleted = await Warehouse.destroy({
         where : {managerID: userID, id: selectedValue}
     })

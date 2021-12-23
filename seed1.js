@@ -1,9 +1,6 @@
 const {Warehouse, Employee, Palette, Box, Manager, User, WarehousePalette, PaletteBox} = require('./initializedb');
 const {sequelizedb } = require('./db.js'); 
-const bcrypt = require('bcrypt');
-//bcrypt
-//set number of salt round for bcrypt encryption
-const saltRounds = 10;
+
 
 const warehouses = [
     { name: 'Sears1', 
@@ -46,6 +43,8 @@ const palettes = [
     {
         capacity: 500, 
         boxcount: 100,
+        warehouseID: 1,
+        employeeID: 2,
         runningCapacity: 500,
         runningBoxCount: 100,
         label: 'Palette Capacity 500, Box Count 100'
@@ -55,6 +54,8 @@ const palettes = [
     {
         capacity: 600, 
         boxcount: 200,
+        warehouseID: 1,
+        employeeID: 2,
         runningCapacity: 600,
         runningBoxCount: 200,
         label: 'Palette Capacity 600, Box Count 200'
@@ -62,6 +63,8 @@ const palettes = [
     {
         capacity: 700, 
         boxcount: 300,
+        employeeID: 2,
+        warehouseID: 1,
         runningCapacity: 700,
         runningBoxCount: 300,
         label: 'Palette Capacity, 700 Box Count 300'
@@ -69,6 +72,8 @@ const palettes = [
     {
         capacity: 200, 
         boxcount: 30,
+        employeeID: 2,
+        warehouseID: 1,
         runningCapacity: 200,
         runningBoxCount: 30,
         label: 'Palette Capacity, 200 Box Count 30'
@@ -76,6 +81,8 @@ const palettes = [
     {
         capacity: 100, 
         boxcount: 10,
+        employeeID: 2,
+        warehouseID: 1,
         runningCapacity: 100,
         runningBoxCount: 10,
         label: 'Palette Capacity 100, Box Count 10'
@@ -89,18 +96,24 @@ const boxes = [
     {
         size: 300, 
         label: 'Battery',
+        paletteID: 1,
+        warehouseID: 1,
         quantity: 234
         
     },
     {
         size: 400, 
         label: 'Mobile Phones',
+        paletteID: 2,
+        warehouseID: 2,
         quantity: 455,
 
     },
     {
         size: 600, 
         label: 'Books',
+        paletteID: 3,
+        warehouseID: 3,
         quantity: 432
     }
 
@@ -120,11 +133,14 @@ const employees = [
     },
     {
         firstName: 'Iyanna',
-        lastName: 'Bell',
+        lastName: 'Iyanna',
         warehouseID: 2,
         managerID: 1,
         userID: 3
     }
+
+
+    
 ]
 
 
@@ -133,25 +149,51 @@ const managers = [
         firstName: 'Crystal',
         lastName: 'Johnson',
         userID: 1
+        
+        
     }
+    
 ]
 
 const users = [
     {
-        name: 'Crystal',
         email: 'crystal@test.com',
         password: "somepassword",
         role: 'manager'
+       
+        
+
+        
     },
     {
-        name: 'Muneer',
         email: 'mmalik@test.com',
         password: "somepassword",
         role: 'employee'
+       
     },
     {
-        name: 'Iyanna',
         email: 'iyanna@test.com',
+        password: "somepassword",
+        role: 'employee'
+        
+    },
+    {
+        email: 'crystal@crystal.com',
+        password: "somepassword",
+        role: 'manager'
+       
+        
+
+        
+    },
+    {
+        email: 'mmalik@mmalik.com',
+        password: "somepassword",
+        role: 'employee'
+       
+    },
+    {
+        email: 'iyanna@iyanna.com',
         password: "somepassword",
         role: 'employee'
         
@@ -178,35 +220,14 @@ const warehousepalette = [
    
 ]
 
-const palettebox = [
-    {
-        
-        paletteID: 5,
-        boxID:1
-        
-       
-        
 
-        
-    }
-    
-   
-]
 
 
 const seed = async () => {
     try {
       console.log('Seeding Start')
       await sequelizedb.sync({force: true})
-      const salt = await bcrypt.genSalt(10);
-      //await User.bulkCreate(users, {validate: true})
-      let password = 'somepassword'
-      for (let count = 0; count < users.length; count++) {
-        hashpassword = await bcrypt.hash(users[count].password, salt);
-        await User.create(
-            {email:users[count].email,'password':hashpassword, role: users[count].role})
-      }
-     
+      await User.bulkCreate(users, {validate: true})
       await Manager.bulkCreate(managers, {validate: true})
       await Warehouse.bulkCreate(warehouses, {validate: true})
       await Employee.bulkCreate(employees, {validate: true})

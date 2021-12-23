@@ -4,48 +4,11 @@ const {Palette} = require('./models/palette');
 const {Box} = require('./models/box');
 const {Warehouse} = require('./models/warehouse');
 const {User} = require('./models/user');
-
-/*
-
-Restaurant.hasMany(Menu, {as: 'menu', foreignKey: 'restaurant_id'})
-Menu.belongsTo(Restaurant, {foreignKey: 'restaurant_id'})
-
-Menu.hasMany(MenuItem), {as: 'menuitem'};
-MenuItem.belongsTo(Menu);
-
-// 1:1
-Organization.belongsTo(User, { foreignKey: 'owner_id' });
-User.hasOne(Organization, { foreignKey: 'owner_id' });
-
-// 1:M
-Project.hasMany(Task, { foreignKey: 'tasks_pk' });
-Task.belongsTo(Project, { foreignKey: 'tasks_pk' });
-
-
-*/
+const {WarehousePalette} = require('./models/warehousepalette');
+const {PaletteBox} = require('./models/palettebox');
 
 
 
-//Manager.hasMany(Warehouse, { foreignKey: 'managerID' })
-//Warehouse.belongsTo(Manager, { foreignKey: 'managerID' })
-
-//Manager.hasMany(Employee, { foreignKey: 'managerID' })
-//Employee.belongsTo(Manager, { foreignKey: 'managerID' })
-
-
-
-
-/*
-Palette.hasMany(Box, { foreignKey: 'paletteID' })
-Box.belongsTo(Palette, { foreignKey: 'paletteID' })
-Box.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
-*/
-
-//Palette.belongsTo(Employee, { foreignKey: 'employeeID' })
-//Palette.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
-
-//Employee.belongsTo(User, { foreignKey: 'userID' })
-//Manager.belongsTo(User, { foreignKey: 'userID' })
 
 User.hasMany(Employee, { foreignKey: 'userID' })
 User.hasMany(Manager, { foreignKey: 'userID' })
@@ -62,32 +25,62 @@ Employee.belongsTo(Manager, { foreignKey: 'managerID' })
 Warehouse.hasMany(Employee, { foreignKey: 'warehouseID' })
 Employee.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
 
-Palette.belongsTo(Employee, { foreignKey: 'employeeID' })
-Palette.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
+//Palette.belongsTo(Employee, { foreignKey: 'employeeID' })
+//Palette.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
 
 
-Palette.hasMany(Box, { foreignKey: 'paletteID' })
-Box.belongsTo(Palette, { foreignKey: 'paletteID' })
-Box.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
+//Palette.hasMany(Box, { foreignKey: 'paletteID' })
+//Box.belongsTo(Palette, { foreignKey: 'paletteID' })
+//Box.belongsTo(Warehouse, { foreignKey: 'warehouseID' })
 
-/*
-Warehouse.hasMany(Employee)
-Employee.belongsTo(Warehouse)
+//Palette.belongsToMany(Warehouse, { through: 'WarehousePalette', foreignKey: 'paletteID' });
+//Warehouse.belongsToMany(Palette, { through: 'WarehousePalette' });
 
-Palette.hasMany(Box)
-Box.belongsTo(Palette)
+WarehousePalette.associate = (models) => {
+    WarehousePalette.belongsTo(models.Warehouse);
+    WarehousePalette.belongsTo(models.Palette);
+    WarehousePalette.belongsTo(models.Employee);
+}
 
-Warehouse.belongsTo(Manager)
-Manager.hasOne(Warehouse)
+Warehouse.associate = (models) => {
+    Warehouse.belongsToMany(models.Palette, { through: models.WarehousePalette});
+  }
 
-Employee.belongsTo(Manager)
+Palette.associate = (models) => {
+    Palette.belongsToMany(models.Warehouse, { through: models.WarehousePalette});
+  }
+
+Palette.associate = (models) => {
+    Palette.belongsToMany(models.Employee, { through: models.WarehousePalette});
+  }
 
 
-Palette.belongsTo(Employee)
-Palette.belongsTo(Warehouse)
+PaletteBox.associate = (models) => {
+    PaletteBox.belongsTo(models.Box);
+    PaletteBox.belongsTo(models.Palette);
+    PaletteBox.belongsTo(models.Employee);
+    PaletteBox.belongsTo(models.Warehouse);
 
-Employee.belongsTo(User)
-Manager.belongsTo(User)
-*/
+}
 
-module.exports = {Warehouse, Employee, Palette, Box, Manager, User}
+Box.associate = (models) => {
+    Box.belongsToMany(models.Palette, { through: models.PaletteBox});
+  }
+
+Palette.associate = (models) => {
+    Palette.belongsToMany(models.Box, { through: models.PaletteBox});
+  }
+
+Palette.associate = (models) => {
+    Palette.belongsToMany(models.Employee, { through: models.PaletteBox});
+  }
+
+Palette.associate = (models) => {
+    Palette.belongsToMany(models.Warehouse, { through: models.PaletteBox});
+  }
+
+
+
+
+
+module.exports = {Warehouse, Employee, Palette, Box, Manager, User, WarehousePalette, PaletteBox}

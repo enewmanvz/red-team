@@ -1,5 +1,5 @@
 {{> managermenu}}
-<div class="container">
+<div class="container bg-info">
     <h3 class="mt-5 text-center mb-5">Delete Employee</h3>  
 </div>
 <div class="container">
@@ -8,7 +8,7 @@
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
             <option selected>Select Employee...</option>
              {{#each employeesForUserID}}
-                <option value={{this.id}}>{{this.name}} </option>
+                <option value={{this.id}}>{{this.firstName}}</option>
             {{/each}}
     </select>   
 </div>

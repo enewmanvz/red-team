@@ -1,8 +1,7 @@
 {{> employeemenu}}
-{{!-- <div class="container"> --}}
-    <h3 class="mt-5 text-center mb-2 bg-info">Add Palette</h3>  
-{{!-- </div> --}}
-<main class="container pt-3">
+<body class="bg-secondary">
+    <h3 class="mt-5 text-center mb-2 py-3 bg-info">Add Palette</h3>  
+<main class="container pt-3" style="min-height: 50vh;">
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
             <option selected>Select Palette...</option>
              {{#each palettesArray}}
@@ -14,7 +13,7 @@
    {{!-- <div class="container" style="margin: 0 auto;"> --}}
         <form class="row" action="/palette/addAction" method="post" id="addPaletteForm">
             <div class="mb-3 row align-items-center justify-content-around">
-                    <button type="submit" class="btn btn-info mb-3 w-50">Add Palette</button>
+                    <button type="submit" class="btn btn-info mb-3 w-25">Add</button>
             </div>
         </form>
     {{!-- </div> --}}
@@ -23,4 +22,5 @@
 
 
     
+</body>
     

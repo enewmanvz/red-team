@@ -1,9 +1,9 @@
 <img src="resources/welcome.gif" width="400" height="auto" style="margin: 0 25vw;"/>
 
-# Expedite Warehouse and Inventory Management App
-<img src="resources/app_page1.png" width="600" height="500" style="margin: 0 25vw;"/>
+<h1 style="text-align:center;"> Expedite Warehouse and Inventory Management App </h1>
+<img src="resources/app_page1.png" width="600" height="auto" style="margin: 0 17vw;"/>
 
-# Project Description
+<h1 style="text-align:center;"> Project Description </h1> 
 
 The goal of this project is to create an app that allows users to efficiently manage our warehouse database.  There are two user types for our app: managers and employees.
 
@@ -20,7 +20,7 @@ Employees are able to:
 **NOTE: Employees are associated with a specific worksite and may only view, add or remove inventory from that site.<br>
 
 
-# Technologies Used:
+<h1 style="text-align:center;"> Technologies Used: </h1>
 <ul>
 <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
 <li><a href="https://nodejs.org/">Node.js</a></li>
@@ -37,19 +37,16 @@ Employees are able to:
 </ul>
 <hr/>
 
-# Project Planning
-<img src="resources/vzwarehouse.drawio.png" width="600" height="500" />
-<img src="resources/kanban2.png"/>
+<h1 style="text-align:center;"> Project Planning </h1>
+<img src="resources/vzwarehouse.drawio.png" width="600" height="auto" style="margin: 0 17vw;"/>
+<img src="resources/kanban2.png" width="800" height="auto" style="margin: 0 5vw;"/>
 
-# Contribution Guidelines
-
-To make suggestions, please create a new issue on this repo.
-
-# Authors and acknowledgments
+<h1 style="text-align:center;"> Authors and acknowledgments </h1>
 
 <li>Iyanna Bell - Front End Lead</li>
 <li>Muneer Malik - Backend Lead</li>
-<li>Crystal Johnson - Scrum Master</li>
+<li>Crystal Johnson - Scrum Master</li><br/>
 
-Thank you to Micheal Dunn-O'Connor for all of his assistance! <br><br><br>
-<img src="./resources/thankyou.gif" width="300" height="150" />
+
+<img src="./resources/thankyou.gif" width="300" height="150" /><br/>
+Thank you to Micheal Dunn-O'Connor for all of his assistance!

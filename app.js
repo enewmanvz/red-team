@@ -5,6 +5,8 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const session = require('express-session');
 const app = express();
 
+
+
 app.engine('handlebars', expressHandlebars({
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));

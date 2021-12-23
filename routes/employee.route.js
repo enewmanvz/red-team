@@ -12,7 +12,8 @@ employee.get('/', async (req, res) => {
     const userID = req.session.userID
     const getWarehouseInfo = await Employee.findOne({where: {userID : userID}})
     const warehouseID = getWarehouseInfo.warehouseID
-
+    // add this to the session to be used in subsequent calls
+    req.session.warehouseID = warehouseID
     const singleWarehouse = await Warehouse.findOne({where: {id: warehouseID}})
     
     res.render('employee', {singleWarehouse})

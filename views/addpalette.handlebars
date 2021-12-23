@@ -5,8 +5,8 @@
 <main class="container pt-3">
      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
             <option selected>Select Palette...</option>
-             {{#each employeesForUserID}}
-                <option value={{this.id}}>{{this.name}} </option>
+             {{#each palettesArray}}
+                <option value={{this.id}}>{{this.label}} </option>
             {{/each}}
     </select>   
 </div>

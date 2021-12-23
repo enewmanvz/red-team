@@ -1,0 +1,30 @@
+{{> employeemenu}}
+<div class="container">
+    <h3 class="mt-5 text-center mb-5">Remove Palette</h3>  
+</div>
+<div class="container">
+
+     <h5>Designated Warehouse Site Name: {{singleWarehouse.name}} &nbsp;{{singleWarehouse.location}}</h5> 
+     <h5 style="color: darkred;">Current Capacity {{singleWarehouse.runningCapacity}}</h5> 
+     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_value">
+            <option selected>Select Palette...</option>
+             {{#each palettesArray}}
+                <option value={{this.id}}>{{this.label}} </option>
+            {{/each}}
+    </select>   
+</div>
+
+   <div class="container" style="margin: 0 auto;">
+        <form class="row" action="/palette/removeAction" method="post" id="removePaletteForm">
+            <div class="mb-3 row align-items-center justify-content-around">
+                    <button type="submit" class="btn btn-info mb-3 w-50">Remove Palette</button>
+            </div>
+        </form>
+        {{alertError}}
+    </div>
+</div>
+<script src="/removepalette.js"></script>
+
+
+    
+    

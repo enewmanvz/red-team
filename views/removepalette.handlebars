@@ -1,8 +1,8 @@
 {{> employeemenu}}
 <div class="container">
-    <h3 class="mt-5 text-center mb-5">Remove Palette</h3>  
+    <h3 class="mt-5 text-center mb-5 py-3 bg-info">Remove Palette</h3>  
 </div>
-<div class="container">
+<div class="container" style="min-height: 50vh;">
 
      <h5>Designated Warehouse Site Name: {{singleWarehouse.name}} &nbsp;{{singleWarehouse.location}}</h5> 
      <h5 style="color: darkred;">Current Capacity {{singleWarehouse.runningCapacity}}</h5> 
@@ -17,7 +17,7 @@
    <div class="container" style="margin: 0 auto;">
         <form class="row" action="/palette/removeAction" method="post" id="removePaletteForm">
             <div class="mb-3 row align-items-center justify-content-around">
-                    <button type="submit" class="btn btn-info mb-3 w-50">Remove Palette</button>
+                    <button type="submit" class="btn btn-info mb-3 w-25">Remove Palette</button>
             </div>
         </form>
         {{alertError}}

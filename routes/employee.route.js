@@ -12,10 +12,10 @@ employee.get('/', async (req, res) => {
     const userID = req.session.userID
     const getWarehouseInfo = await Employee.findOne({where: {userID : userID}})
     const warehouseID = getWarehouseInfo.warehouseID
-
     const singleWarehouse = await Warehouse.findOne({where: {id: warehouseID}})
     
-    res.render('employee', {singleWarehouse})
+    //export variables to use in handlebars
+    res.render('employee', {singleWarehouse, getWarehouseInfo})
 })
 
 employee.get('/add', async (req, res) => {

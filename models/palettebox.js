@@ -43,7 +43,10 @@ PaletteBox.init({
           model: Warehouse, 
           key: 'id'
         }
-   }
+   },
+   paletteLabel: DataTypes.STRING,
+   boxLabel: DataTypes.STRING
+
     
 }, {
     sequelize: sequelizedb,

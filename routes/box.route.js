@@ -4,7 +4,6 @@ const box = express.Router();
 const {User} = require('../models/user');
 const {Box} = require('../models/box');
 const {PaletteBox} = require('../models/paletteBox');
-const {Warehouse} = require('../models/warehouse');
 const {WarehousePalette} = require('../models/warehousepalette');
 const {Palette} = require('../models/palette');
 const { Op } = require("sequelize");
@@ -105,7 +104,9 @@ box.get('/select', async (req, res) => {
             paletteID: paletteSelectedValue,
             warehouseID:warehouseID,
             employeeID: loggedInUser,
-            boxID: boxSelectedValue
+            boxID: boxSelectedValue,
+            boxLabel: singleBox.label,
+            paletteLabel: singlePalette.label
           }
         
           const newPaletteBox = await PaletteBox.create(paletteBox)
@@ -128,7 +129,92 @@ box.get('/select', async (req, res) => {
 
     })
     
-   
+    box.get('/remove', async (req, res) => {
+      // we need to show palettes in the system to be added
+       // need to get the list to render
+     //find all employees for this user
+     const loggedInUser = req.session.userID
+     const warehouseID = req.session.warehouseID
+     
+     
+    
+     // dummy vars sets them later to be returned
+     let returnBox = 0
+     let returnPalette = 0
+     
+     const PalletBoxes = await PaletteBox.findAll({where: {warehouseID: warehouseID, employeeID: loggedInUser}})
+     if  (PalletBoxes.length == 0) {
+      const alertError = "Nothing to remove, pleaase add palette and boxes"
+      res.render('error', {alertError})
+
+     } else {
+      // prepare for palettes and boxes drop down 
+
+      
+
+
+      
+      
+
+
+       res.render('removebox', {PalletBoxes})
+
+     }
+
+
+
+  
+     
+  
+  
+          
+          
+  
+      
+      
+      
+      
+    
+     
+     })
+
+     box.post('/removeAction', async (req, res) => {
+      // this userid is a loggedIn userID
+      const loggedInUser = req.session.userID
+      const warehouseID = req.session.warehouseID
+      const selectedPaletteBoxValue = req.body.selectedPaletteValue
+      
+      console.log("option value" + selectedPaletteBoxValue)
+
+      const palettBox = await PaletteBox.findByPk(selectedPaletteBoxValue)
+      const singlePalette = await Palette.findByPk(palettBox.paletteID)
+      const singleBox = await Box.findByPk(palettBox.boxID)
+
+      const paletteRunningCapacity =  singlePalette.runningCapacity + singleBox.size
+
+      // delete the record
+      const deleteBoxPalette = await PaletteBox.destroy({
+        where : {paletteboxID: selectedPaletteBoxValue}
+      })
+
+      whattoUpdate = {
+        runningCapacity: paletteRunningCapacity
+      
+        }
+
+        const updatePalette = await Palette.update(whattoUpdate, {
+          where : {id: palettBox.paletteID}
+        })
+
+      
+     
+    
+      res.redirect('/employee')
+       
+    
+    
+      
+    })
   
   
     

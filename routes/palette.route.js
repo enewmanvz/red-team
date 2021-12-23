@@ -3,6 +3,7 @@ const express = require('express');
 const palette = express.Router();
 const {Palette} = require('../models/palette');
 const {Warehouse} = require('../models/warehouse');
+const {Employee} = require('../models/employee');
 const {WarehousePalette} = require('../models/warehousepalette')
 const { Op } = require("sequelize");
 const {sequelizedb } = require('../db.js'); 
@@ -68,10 +69,14 @@ palette.post('/addAction', async (req, res) => {
   const selectedPaletteValue = req.body.selectedValue
   console.log("Palette" + selectedPaletteValue)
   console.log("Warehouse" + warehouseID)
+  console.log("Logged In User" + loggedInUser)
+  
 
   const singlePalette = await Palette.findByPk(selectedPaletteValue)
   const paletteCapacity = singlePalette.capacity
-
+  // we need to get the employee ID for the user ID
+  const singleEmployeeIDForUserID = await Employee.findOne({where: {userID: loggedInUser}})
+  const employeeID = singleEmployeeIDForUserID.id
   // we need to check if this can be added
 
    if (paletteCapacity > warehouseRunningCapacity) {
@@ -86,7 +91,7 @@ palette.post('/addAction', async (req, res) => {
         const warehousePalette  = {
           paletteID: selectedPaletteValue,
           warehouseID:warehouseID,
-          employeeID: loggedInUser
+          employeeID: employeeID
         }
       
         const newWarehousePalette = await WarehousePalette.create(warehousePalette)

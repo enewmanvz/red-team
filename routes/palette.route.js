@@ -108,6 +108,42 @@ palette.post('/addAction', async (req, res) => {
 })
 
 
+palette.get('/remove', async (req, res) => {
+  // we need to show palettes in the system to be added
+   // need to get the list to render
+ //find all employees for this user
+ const loggedInUser = req.session.userID
+ const warehouseID = req.session.warehouseID
+ 
+ //first get the ware house info
+ const singleWarehouse = await Warehouse.findByPk(warehouseID)
+ // get all palettes for this user id
+ 
+ // we need to check if these palettes have already been added
+ const palettesForWarehouse = await WarehousePalette.findAll({where: {warehouseID: warehouseID}})
+ const arrayofPalettes = []
+ for(let count = 0; count < palettesForWarehouse.length; count ++) {
+  arrayofPalettes.push(palettesForWarehouse[count].paletteID)
+ }
+
+ const palettesForUserID = await Palette.findAll(
+   {where: {id: {
+              [Op.in]: arrayofPalettes
+          } 
+  }})
+ 
+ const palettesArray = palettesForUserID
+ res.render('removePalette', {singleWarehouse, palettesArray})
+
+
+ 
+ 
+ 
+ 
+ 
+})
+
+
 
 
 

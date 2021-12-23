@@ -12,9 +12,10 @@ const saltRounds = 10;
 
 
 
-manager.get('/', async (_req, res) => {
-    const populate = await Employee.findAll();
-    res.render('manager', {populate});
+manager.get('/', async (req, res) => {
+    const id = req.session.userID
+    const employeeList = await Employee.findAll({where: {managerID: id}});
+    res.render('manager', {employeeList});
 });
 
 manager.get('/select/:action', async (req, res) => {

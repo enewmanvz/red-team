@@ -33,10 +33,10 @@ employee.get('/add', async (req, res) => {
 employee.post('/addAction', async (req, res) => {
     // this userid is a loggedIn userID
     const loggedInUser = req.session.userID
-   
+    hashpassword = await bcrypt.hash(req.body.password, salt);
     const user = {
           email: req.body.email,
-          password: req.body.password,
+          password: hashpassword,
           role : 'employee'
     }
     

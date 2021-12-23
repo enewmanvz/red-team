@@ -7,6 +7,7 @@ const app = express();
 
 
 
+
 app.engine('handlebars', expressHandlebars({
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));

@@ -5,11 +5,12 @@ const {Warehouse} = require('../models/warehouse');
 const {Employee} = require('../models/employee');
 const { Op } = require("sequelize");
 const fs = require('fs');
+const bcrypt = require('bcrypt');
+//bcrypt
+//set number of salt round for bcrypt encryption
+const saltRounds = 10;
 
-//Handlebars
-const Handlebars = require('handlebars');
-const expressHandlebars = require('express-handlebars');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access') 
+
 
 manager.get('/', async (_req, res) => {
     const populate = await Employee.findAll();

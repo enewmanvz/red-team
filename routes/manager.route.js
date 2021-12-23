@@ -5,15 +5,17 @@ const {Warehouse} = require('../models/warehouse');
 const {Employee} = require('../models/employee');
 const { Op } = require("sequelize");
 const fs = require('fs');
+const bcrypt = require('bcrypt');
+//bcrypt
+//set number of salt round for bcrypt encryption
+const saltRounds = 10;
 
-//Handlebars
-const Handlebars = require('handlebars');
-const expressHandlebars = require('express-handlebars');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access') 
 
-manager.get('/', async (_req, res) => {
-    const populate = await Employee.findAll();
-    res.render('manager', {populate});
+
+manager.get('/', async (req, res) => {
+    const id = req.session.userID
+    const employeeList = await Employee.findAll({where: {managerID: id}});
+    res.render('manager', {employeeList});
 });
 
 manager.get('/select/:action', async (req, res) => {
